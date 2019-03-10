@@ -1,3 +1,6 @@
+span{
+  color: white;
+}
 .sidenav-container {
   height: 100%;
 }
@@ -16,3 +19,15 @@
   z-index: 1;
 }
 
+.img{
+  margin-left: 70px;
+}
+
+.active-list-item {
+  color: green; /* Note: You could also use a custom theme */
+}
+
+p.ex {
+  margin-left: 20px;
+  margin-top: 15px;
+}

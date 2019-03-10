@@ -3,35 +3,35 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar><img class="img" src="assets/img/logo.png" width=75px height=75px></mat-toolbar>
     <mat-nav-list>
       <mat-list-item>
-        <a class="menu-item" [routerLink]="['/home']" mat-list-item ><mat-icon>home</mat-icon>
-          Home</a>
+        <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+         <p class="ex">Home</p></a>
       </mat-list-item>
       <mat-list-item>
-        <a [routerLink]="['/registerUsers']" mat-list-item ><mat-icon>group_add</mat-icon>
-          Register Users</a>
-      </mat-list-item>
-
-      <mat-list-item>
-        <a [routerLink]="['/manageUsers']" mat-list-item><mat-icon>account_circle</mat-icon>
-          Manage Users</a>
+        <a [routerLink]="['/registerUsers']" mat-list-item routerLinkActive="active-list-item"><mat-icon>group_add</mat-icon>
+          <p class="ex">Register Users</p></a>
       </mat-list-item>
 
       <mat-list-item>
-        <a [routerLink]="['/systemStatistics']" mat-list-item><mat-icon>bar_chart</mat-icon>
-          System Statistics</a>
+        <a [routerLink]="['/manageUsers']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
+          <p class="ex">Manage Users</p></a>
       </mat-list-item>
 
       <mat-list-item>
-        <a [routerLink]="['/invoices']" mat-list-item><mat-icon>assignment</mat-icon>
-          Invoices</a>
+        <a [routerLink]="['/systemStatistics']" mat-list-item routerLinkActive="active-list-item"><mat-icon>bar_chart</mat-icon>
+          <p class="ex">System Statistics</p></a>
       </mat-list-item>
 
       <mat-list-item>
-        <a [routerLink]="['/messages']" mat-list-item><mat-icon>feedback</mat-icon>
-          Messages</a>
+        <a [routerLink]="['/invoices']" mat-list-item routerLinkActive="active-list-item"><mat-icon>assignment</mat-icon>
+          <p class="ex">Invoices</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/messages']" mat-list-item routerLinkActive="active-list-item"><mat-icon>feedback</mat-icon>
+          <p class="ex">Messages</p></a>
       </mat-list-item>
       </mat-nav-list>
   </mat-sidenav>
@@ -42,7 +42,8 @@
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        >
+        <!-- *ngIf="isHandset$ | async" -->
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Trasher</span>
@@ -50,5 +51,5 @@
     <!-- Add Content Here -->
     <ng-content></ng-content>
   </mat-sidenav-content>
-
 </mat-sidenav-container>
+
