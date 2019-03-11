@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-
+import { MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import 'hammerjs';
+
 import { MainNavComponent } from './inc/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HomeComponent } from './menus/home/home.component';
@@ -17,6 +18,7 @@ import { SystemstatisticsComponent } from './menus/systemstatistics/systemstatis
 import { InvoicesComponent } from './menus/invoices/invoices.component';
 import { MessagesComponent } from './menus/messages/messages.component';
 
+import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,10 @@ import { MessagesComponent } from './menus/messages/messages.component';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    NgMatSearchBarModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

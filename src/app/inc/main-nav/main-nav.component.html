@@ -2,7 +2,7 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
+      [opened]="(isHandset$ | async)">
     <mat-toolbar><img class="img" src="assets/img/logo.png" width=75px height=75px></mat-toolbar>
     <mat-nav-list>
       <mat-list-item>
@@ -47,6 +47,13 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Trasher</span>
+      <span class="toolbar-spacer"></span>
+        <mat-icon
+          class="toolbar-icon"
+          matBadge="8"
+          matBadgePosition="after"
+          matBadgeColor="accent"
+        >notifications</mat-icon>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>
