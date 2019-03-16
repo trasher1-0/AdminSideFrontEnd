@@ -19,6 +19,8 @@ import { InvoicesComponent } from './menus/invoices/invoices.component';
 import { MessagesComponent } from './menus/messages/messages.component';
 
 import { MatGridListModule } from '@angular/material/grid-list';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ManageusersComponent,
     SystemstatisticsComponent,
     InvoicesComponent,
-    MessagesComponent
+    MessagesComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
