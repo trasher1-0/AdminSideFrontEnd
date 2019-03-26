@@ -21,6 +21,7 @@ import { MessagesComponent } from './menus/messages/messages.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { RegeventcontributorComponent } from './menus/regusers/regeventcontributor/regeventcontributor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { AdminComponent } from './admin/admin.component';
     InvoicesComponent,
     MessagesComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    RegeventcontributorComponent
   ],
   imports: [
     BrowserModule,
