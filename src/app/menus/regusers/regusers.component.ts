@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegusersComponent implements OnInit {
 
+  hide = true;
+  panelOpenState = false;
   constructor() { }
 
   ngOnInit() {
