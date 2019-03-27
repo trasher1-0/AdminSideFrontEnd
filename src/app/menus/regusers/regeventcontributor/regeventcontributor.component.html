@@ -1,41 +1,42 @@
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Register Event Contributer
-      </mat-panel-title>
-      <mat-panel-description>
-        Fill the table
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-      <mat-card>
-        <div class="example-container">
-          <mat-form-field>
-            <input matInput placeholder="Username">
-          </mat-form-field>
+<mat-card>
+  <div class="example-container">
+    <mat-form-field>
+      <mat-icon matSuffix>person</mat-icon>
+      <input matInput placeholder="Username">
+    </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Fullname">
-          </mat-form-field>
+    <mat-form-field>
+      <mat-icon matSuffix>face</mat-icon>
+      <input matInput placeholder="Fullname">
+    </mat-form-field>
 
-          <mat-form-field>
-            <textarea matInput placeholder="Address"></textarea>
-          </mat-form-field>
+    <mat-form-field>
+      <mat-icon matSuffix>home</mat-icon>
+      <textarea matInput placeholder="Address"></textarea>
+    </mat-form-field>
 
-          <mat-form-field>
-            <mat-select placeholder="City">
-              <mat-option value="Colombo">Colombo</mat-option>
-              <mat-option value="Gampaha">Gampaha</mat-option>
-              <mat-option value="Kalutara">Kalutara</mat-option>
-            </mat-select>
-          </mat-form-field>
+    <mat-form-field>
+      <mat-icon matSuffix>message</mat-icon>
+      <mat-select placeholder="City">
+        <mat-option value="Colombo">Colombo</mat-option>
+        <mat-option value="Gampaha">Gampaha</mat-option>
+        <mat-option value="Kalutara">Kalutara</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
 
-        </div>
-      </mat-card>
-  </mat-expansion-panel>
-</mat-accordion>
+    <mat-checkbox>I accept above details are correct.</mat-checkbox>
+
+    <div class="row">
+      <div class="col-lg-8"></div>
+      <div class="col-lg-4">
+      <button mat-flat-button class="btn btn-block" color="primary">Register</button>
+      </div>
+    </div>
+
+  </div>
+</mat-card>

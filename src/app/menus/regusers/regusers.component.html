@@ -1,6 +1,14 @@
 <div class="row">
 <div class="col-md-2"></div>
 <div class="col-md-8">
-  <app-regeventcontributor></app-regeventcontributor>
+  <mat-card>
+  <mat-tab-group>
+      <mat-tab label="Event organizer">
+        <app-regeventcontributor></app-regeventcontributor>
+      </mat-tab>
+      <mat-tab label="Event Contributor">Event Contributor</mat-tab>
+  </mat-tab-group>
+</mat-card>
+
 </div>
 </div>

@@ -24,7 +24,7 @@ span{
 }
 
 .active-list-item {
-  color: green; /* Note: You could also use a custom theme */
+  color: #c62828; /* Note: You could also use a custom theme */
 }
 
 p.ex {

@@ -5,8 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatPaginator, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatExpansionModule } from '@angular/material';
+import { MatTableModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatPaginator, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatExpansionModule, MatTabsModule, MatDialogModule} from '@angular/material';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 import 'hammerjs';
 
 import { MainNavComponent } from './inc/main-nav/main-nav.component';
@@ -22,6 +24,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { RegeventcontributorComponent } from './menus/regusers/regeventcontributor/regeventcontributor.component';
+import { EditorganizerComponent } from './menus/manageusers/editorganizer/editorganizer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,8 @@ import { RegeventcontributorComponent } from './menus/regusers/regeventcontribut
     MessagesComponent,
     LoginComponent,
     AdminComponent,
-    RegeventcontributorComponent
+    RegeventcontributorComponent,
+    EditorganizerComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,10 @@ import { RegeventcontributorComponent } from './menus/regusers/regeventcontribut
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
