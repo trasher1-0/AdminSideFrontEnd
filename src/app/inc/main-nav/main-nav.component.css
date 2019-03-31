@@ -32,4 +32,7 @@ p.ex {
   margin-top: 15px;
 }
 
-
+.active-list-item{
+  color: #ffffff;
+  background-color:#212121;
+}

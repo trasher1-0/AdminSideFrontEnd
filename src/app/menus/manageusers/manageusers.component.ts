@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-manageusers',
@@ -11,6 +11,17 @@ export class ManageusersComponent implements OnInit {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  constructor(public dialog: MatDialog) {}
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ManageusersComponent, {
+      width: '500px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;

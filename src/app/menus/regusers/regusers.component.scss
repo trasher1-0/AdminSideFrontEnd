@@ -1,8 +1,8 @@
-.example-container {
-  display: flex;
-  flex-direction: column;
+.example-card {
+  max-width: 400px;
 }
 
-.example-container > * {
-  width: 100%;
+.example-header-image {
+  background-image: url('/assets/img/rover.jpg');
+  background-size: cover;
 }
