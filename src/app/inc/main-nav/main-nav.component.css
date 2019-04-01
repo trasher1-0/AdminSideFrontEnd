@@ -6,7 +6,7 @@ span{
 }
 
 .sidenav {
-  width: 300px;
+  width: 280px;
 }
 
 .sidenav .mat-toolbar {
@@ -20,7 +20,7 @@ span{
 }
 
 .img{
-  margin-left: 70px;
+  margin-left: 50px;
 }
 
 .active-list-item {
@@ -34,5 +34,6 @@ p.ex {
 
 .active-list-item{
   color: #ffffff;
-  background-color:#212121;
+  background-color:#ffab40;
 }
+
