@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatPaginator, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatExpansionModule, MatTabsModule, MatDialogModule} from '@angular/material';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { WebcamModule } from 'ngx-webcam';
 
 import 'hammerjs';
 
@@ -62,7 +63,8 @@ import { EditorganizerComponent } from './menus/manageusers/editorganizer/editor
     MatExpansionModule,
     MatDatepickerModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    WebcamModule
   ],
   providers: [],
   bootstrap: [AppComponent]
