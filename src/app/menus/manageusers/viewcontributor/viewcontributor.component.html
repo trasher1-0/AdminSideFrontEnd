@@ -1,0 +1,26 @@
+<div class="container container-fluid">
+<mat-card>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Username</th>
+    <th>FullName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Password</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let contributor of contributors">
+    <td>{{contributor.id}}</td>
+    <td>{{contributor.username}}</td>
+    <td>{{contributor.fullname}}</td>
+    <td>{{contributor.address}}</td>
+    <td>{{contributor.city}}</td>
+    <td>{{contributor.Password}}</td>
+  </tr>
+  </tbody>
+</table>
+</mat-card>
+</div>

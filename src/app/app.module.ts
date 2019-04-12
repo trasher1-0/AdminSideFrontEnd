@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatPaginator, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatExpansionModule, MatTabsModule, MatDialogModule} from '@angular/material';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
@@ -26,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { RegeventcontributorComponent } from './menus/regusers/regeventcontributor/regeventcontributor.component';
 import { EditorganizerComponent } from './menus/manageusers/editorganizer/editorganizer.component';
+import { ViewcontributorComponent } from './menus/manageusers/viewcontributor/viewcontributor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,8 @@ import { EditorganizerComponent } from './menus/manageusers/editorganizer/editor
     LoginComponent,
     AdminComponent,
     RegeventcontributorComponent,
-    EditorganizerComponent
+    EditorganizerComponent,
+    ViewcontributorComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +65,8 @@ import { EditorganizerComponent } from './menus/manageusers/editorganizer/editor
     MatDatepickerModule,
     MatTabsModule,
     MatDialogModule,
-    WebcamModule
+    WebcamModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
