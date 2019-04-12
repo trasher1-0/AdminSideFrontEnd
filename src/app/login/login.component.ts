@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +7,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
-  onLoggedin() {
-    localStorage.setItem('isLoggedin', 'true');
-}
 
 }
