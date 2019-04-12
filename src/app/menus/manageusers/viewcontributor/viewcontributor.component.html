@@ -9,6 +9,7 @@
     <th>Address</th>
     <th>City</th>
     <th>Password</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -18,7 +19,10 @@
     <td>{{contributor.fullname}}</td>
     <td>{{contributor.address}}</td>
     <td>{{contributor.city}}</td>
-    <td>{{contributor.Password}}</td>
+    <td>{{contributor.password}}</td>
+    <td><button mat-icon-button><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button color="warn" (click)="remove(contributor.id)"><mat-icon>delete</mat-icon></button>
+    </td>
   </tr>
   </tbody>
 </table>
