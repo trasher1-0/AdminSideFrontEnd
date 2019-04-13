@@ -1,15 +1,16 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { ContributorService } from '../../../services/contributor.service';
-import { MatDialog, MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ContributorService } from 'src/app/services/contributor.service';
+import { MatDialog, MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { NotificationService } from 'src/app/services/notification.service';
 import { DialogService } from 'src/app/services/dialog.service';
+import { Contributor } from 'src/app/services/contributor';
 
 @Component({
-  selector: 'app-viewcontributor',
-  templateUrl: './viewcontributor.component.html',
-  styleUrls: ['./viewcontributor.component.scss']
+  selector: 'app-vieworganizer',
+  templateUrl: './vieworganizer.component.html',
+  styleUrls: ['./vieworganizer.component.scss']
 })
-export class ViewcontributorComponent implements OnInit {
+export class VieworganizerComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -93,4 +94,5 @@ export class ViewcontributorComponent implements OnInit {
     // dialogConfig.width = "60%";
     // this.dialog.open(EmployeeComponent,dialogConfig);
   }
+
 }

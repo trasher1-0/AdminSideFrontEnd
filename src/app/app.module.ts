@@ -26,7 +26,9 @@ import { AdminComponent } from './admin/admin.component';
 import { RegeventcontributorComponent } from './menus/regusers/regeventcontributor/regeventcontributor.component';
 import { EditorganizerComponent } from './menus/manageusers/editorganizer/editorganizer.component';
 import { ViewcontributorComponent } from './menus/manageusers/viewcontributor/viewcontributor.component';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ConfirmComponent } from './confirm/confirm.component';
+import { VieworganizerComponent } from './menus/manageusers/vieworganizer/vieworganizer.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     RegeventcontributorComponent,
     EditorganizerComponent,
     ViewcontributorComponent,
-    ConfirmDialogComponent
+    ConfirmComponent,
+    VieworganizerComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     HttpClientModule,
     MatDialogModule,
     MatSnackBarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
