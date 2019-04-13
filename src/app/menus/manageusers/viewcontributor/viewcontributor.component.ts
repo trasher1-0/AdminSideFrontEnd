@@ -36,7 +36,6 @@ export class ViewcontributorComponent implements OnInit {
     
       this.contributorService.getAllContributors().subscribe(
         list => {
-          console.log(list);
           this.listData = new MatTableDataSource(list);
           this.listData.sort = this.sort;
           this.listData.paginator = this.paginator;

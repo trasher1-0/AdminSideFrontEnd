@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ContributorService } from 'src/app/services/contributor.service';
 import { MatDialog, MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { NotificationService } from 'src/app/services/notification.service';
 import { DialogService } from 'src/app/services/dialog.service';
-import { Contributor } from 'src/app/services/contributor';
+import { OrganizerService } from 'src/app/services/organizer.service';
 
 @Component({
   selector: 'app-vieworganizer',
@@ -14,15 +13,15 @@ export class VieworganizerComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  contributors: Array<any>;
+  organizers: Array<any>;
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'username', 'fullname', 'address','city','password','actions'];
+  displayedColumns: string[] = ['id', 'username', 'fullname', 'address','city','mobile','email','password','actions'];
   @ViewChild(MatSort) sort: MatSort;
 
   searchKey: string;
 
   constructor(
-    private contributorService : ContributorService ,
+    private organizerService : OrganizerService ,
     private dialog: MatDialog,
     private notificationService: NotificationService,
     
@@ -31,13 +30,12 @@ export class VieworganizerComponent implements OnInit {
     private dialogService: DialogService) { }
 
   ngOnInit() {
-    this.contributorService.getAllContributors().subscribe(data=>{
-        this.contributors=data;
+    this.organizerService.getAllOrganizers().subscribe(data=>{
+        this.organizers=data;
       });
     
-      this.contributorService.getAllContributors().subscribe(
+      this.organizerService.getAllOrganizers().subscribe(
         list => {
-          console.log(list);
           this.listData = new MatTableDataSource(list);
           this.listData.sort = this.sort;
           this.listData.paginator = this.paginator;
@@ -53,7 +51,7 @@ export class VieworganizerComponent implements OnInit {
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
     .afterClosed().subscribe(res =>{
       if(res){
-        this.contributorService.deleteContributor(id).subscribe(result => {
+        this.organizerService.deleteOrganizer(id).subscribe(result => {
         }, error => console.error(error));
         this.ngOnInit();
         this.ngOnInit();
