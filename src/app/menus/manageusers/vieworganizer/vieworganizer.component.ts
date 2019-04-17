@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import { MatDialog, MatPaginator, MatTableDataSource, MatSort, MatDialogConfig } from '@angular/material';
 import { NotificationService } from 'src/app/services/notification.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { OrganizerService } from 'src/app/services/organizer.service';
+import { OrganizerComponent } from '../organizer/organizer.component';
+import { delayWhen } from 'rxjs/operators';
 
 @Component({
   selector: 'app-vieworganizer',
@@ -12,7 +14,7 @@ import { OrganizerService } from 'src/app/services/organizer.service';
 export class VieworganizerComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
+  
   organizers: Array<any>;
   listData: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'username', 'fullname', 'address','city','mobile','email','password','actions'];
@@ -76,21 +78,22 @@ export class VieworganizerComponent implements OnInit {
 
 
   onCreate() {
-    // this.service.initializeFormGroup();
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.width = "60%";
-    // this.dialog.open(EmployeeComponent,dialogConfig);
+    this.organizerService.initializeFormGroup();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(OrganizerComponent,dialogConfig);
   }
 
   onEdit(row){
-    // this.service.populateForm(row);
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.width = "60%";
-    // this.dialog.open(EmployeeComponent,dialogConfig);
+    console.log(row);
+    this.organizerService.populateForm(row);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(OrganizerComponent,dialogConfig);
   }
 
 }

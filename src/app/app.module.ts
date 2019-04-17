@@ -8,7 +8,6 @@ import { MatTableModule, MatCardModule, MatButtonModule, MatCheckboxModule, MatT
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { WebcamModule } from 'ngx-webcam';
-
 import 'hammerjs';
 
 import { MainNavComponent } from './inc/main-nav/main-nav.component';
@@ -24,11 +23,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { RegeventcontributorComponent } from './menus/regusers/regeventcontributor/regeventcontributor.component';
-import { EditorganizerComponent } from './menus/manageusers/editorganizer/editorganizer.component';
 import { ViewcontributorComponent } from './menus/manageusers/viewcontributor/viewcontributor.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { VieworganizerComponent } from './menus/manageusers/vieworganizer/vieworganizer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ControlContainer, ReactiveFormsModule } from '@angular/forms';
+import { OrganizerComponent } from './menus/manageusers/organizer/organizer.component';
+import { ContributorService } from './services/contributor.service';
+import { OrganizerService } from './services/organizer.service';
+import { DatePipe } from '@angular/common';
+import { Contributor } from './services/contributor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,10 +45,10 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     AdminComponent,
     RegeventcontributorComponent,
-    EditorganizerComponent,
     ViewcontributorComponent,
     ConfirmComponent,
-    VieworganizerComponent
+    VieworganizerComponent,
+    OrganizerComponent
   ],
   imports: [
     BrowserModule,
@@ -74,9 +77,11 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     MatDialogModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ContributorService,OrganizerService,DatePipe],
+  bootstrap: [AppComponent],
+  entryComponents:[OrganizerComponent,LoginComponent]
 })
 export class AppModule { }

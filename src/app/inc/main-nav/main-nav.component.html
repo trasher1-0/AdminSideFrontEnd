@@ -1,11 +1,29 @@
 <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        >
+        <!-- *ngIf="isHandset$ | async" -->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Trasher</span>
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async)">
     <mat-toolbar></mat-toolbar>
     <mat-toolbar><img class="img" src="assets/img/logo.png" width=120px height=120px></mat-toolbar>
-    <br>
+    <br><br/><br/>
+    <div class="wel">
     <mat-nav-list>
       <mat-list-item>
         <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
@@ -35,24 +53,8 @@
         <a [routerLink]="['/messages']" mat-list-item routerLinkActive="active-list-item"><mat-icon>feedback</mat-icon>
           <p class="ex">Messages</p></a>
       </mat-list-item>
-      </mat-nav-list>
+    </mat-nav-list>
+  </div>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        >
-        <!-- *ngIf="isHandset$ | async" -->
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>Trasher</span>
-
-    </mat-toolbar>
-    <!-- Add Content Here -->
-    <ng-content></ng-content>
-  </mat-sidenav-content>
 </mat-sidenav-container>
-
+jjsd
