@@ -13,7 +13,6 @@ import 'hammerjs';
 import { MainNavComponent } from './inc/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HomeComponent } from './menus/home/home.component';
-import { RegusersComponent } from './menus/regusers/regusers.component';
 import { ManageusersComponent } from './menus/manageusers/manageusers.component';
 import { SystemstatisticsComponent } from './menus/systemstatistics/systemstatistics.component';
 import { InvoicesComponent } from './menus/invoices/invoices.component';
@@ -22,7 +21,6 @@ import { MessagesComponent } from './menus/messages/messages.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
-import { RegeventcontributorComponent } from './menus/regusers/regeventcontributor/regeventcontributor.component';
 import { ViewcontributorComponent } from './menus/manageusers/viewcontributor/viewcontributor.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { VieworganizerComponent } from './menus/manageusers/vieworganizer/vieworganizer.component';
@@ -32,23 +30,27 @@ import { ContributorService } from './services/contributor.service';
 import { OrganizerService } from './services/organizer.service';
 import { DatePipe } from '@angular/common';
 import { Contributor } from './services/contributor';
+import { UserloginComponent } from './userlogin/userlogin.component';
+import { AdminService } from './services/admin.service';
+import { ManagerobotComponent } from './menus/managerobot/managerobot.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     HomeComponent,
-    RegusersComponent,
     ManageusersComponent,
     SystemstatisticsComponent,
     InvoicesComponent,
     MessagesComponent,
     LoginComponent,
     AdminComponent,
-    RegeventcontributorComponent,
     ViewcontributorComponent,
     ConfirmComponent,
     VieworganizerComponent,
-    OrganizerComponent
+    OrganizerComponent,
+    UserloginComponent,
+    ManagerobotComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,7 @@ import { Contributor } from './services/contributor';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ContributorService,OrganizerService,DatePipe],
+  providers: [ContributorService,OrganizerService,AdminService,DatePipe],
   bootstrap: [AppComponent],
   entryComponents:[OrganizerComponent,LoginComponent]
 })

@@ -19,7 +19,7 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async)">
+      [opened]="true">
     <mat-toolbar></mat-toolbar>
     <mat-toolbar><img class="img" src="assets/img/logo.png" width=120px height=120px></mat-toolbar>
     <br><br/><br/>
@@ -30,8 +30,8 @@
          <p class="ex">Home</p></a>
       </mat-list-item>
       <mat-list-item>
-        <a [routerLink]="['/registerUsers']" mat-list-item routerLinkActive="active-list-item"><mat-icon>group_add</mat-icon>
-          <p class="ex">Register Users</p></a>
+        <a [routerLink]="['/manageRobot']" mat-list-item routerLinkActive="active-list-item"><mat-icon>android</mat-icon>
+          <p class="ex">Manage Robot</p></a>
       </mat-list-item>
 
       <mat-list-item>
@@ -57,4 +57,3 @@
   </div>
   </mat-sidenav>
 </mat-sidenav-container>
-jjsd
