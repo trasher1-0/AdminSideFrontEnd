@@ -33,6 +33,8 @@ import { Contributor } from './services/contributor';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { AdminService } from './services/admin.service';
 import { ManagerobotComponent } from './menus/managerobot/managerobot.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { ManagerobotComponent } from './menus/managerobot/managerobot.component'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ContributorService,OrganizerService,AdminService,DatePipe],
+  providers: [ContributorService,
+    OrganizerService,AdminService,DatePipe,
+    AuthService, AuthGuard],
   bootstrap: [AppComponent],
   entryComponents:[OrganizerComponent,LoginComponent]
 })

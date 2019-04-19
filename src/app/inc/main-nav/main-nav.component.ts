@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -14,7 +15,18 @@ export class MainNavComponent {
     .pipe(
       map(result => result.matches)
     );
+  
+  isLoggedIn$: Observable<boolean>;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private authService: AuthService,
+    private breakpointObserver: BreakpointObserver) { }
+
+  ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedIn;
+  }
+
+  onLogout() {
+    this.authService.logout();
+  }
 
 }

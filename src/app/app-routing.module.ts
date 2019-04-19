@@ -13,48 +13,49 @@ import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '' , component : AdminComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
+  {path: 'userlogin' , component: UserloginComponent},
 
   { path: 'admin' , 
     component : AdminComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'manageRobot' , 
     component : ManagerobotComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'manageUsers' , 
     component : ManageusersComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'systemStatistics' , 
     component : SystemstatisticsComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'invoices' , 
     component : InvoicesComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'messages' , 
     component : MessagesComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
-  {path: 'userlogin' , component: UserloginComponent},
-  {path: 'home' , component : HomeComponent},
+  {path: 'home' , component : HomeComponent,
+  canActivate: [AuthGuard]}
   //{path: 'registerUsers' , component : RegusersComponent},
 
 ];
