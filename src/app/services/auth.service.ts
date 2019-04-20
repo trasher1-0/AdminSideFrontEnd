@@ -35,6 +35,7 @@ export class AuthService {
     if (this.a=='true') {
       this.loggedIn.next(true);
       this.router.navigate(['/home']);
+      this.notificationService.success("Successfull Login!");
     }
     else{
       this.notificationService.warn('Error Login details!');
