@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from './user';
 import { NotificationService } from './notification.service';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Injectable()
 export class AuthService {
@@ -12,38 +13,42 @@ export class AuthService {
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
-
+  
   constructor(
     private router: Router,
     private http: HttpClient,
     private notificationService:NotificationService
-  ) {}
+  ) {
+  }
 
   public API = 'http://localhost:8080/trasher/api';
   public ADMINAUTH_API = this.API + '/adminAuth';
-
-  a:string;
+  public a:string;
+  
   login(user: User) {
+    console.log(user);
     this.http.post(this.ADMINAUTH_API,{
-      'id':1,
       'username':user.userName,
       'password':user.password
-    }).subscribe(data=>
-      this.a=data.toString()
+    }).subscribe(data=>{
+      this.a=data.toString();
+      console.log(this.a);
+      if (this.a=='true') {
+        this.loggedIn.next(true);
+        this.notificationService.success("Successfull Login!");
+        this.router.navigate(['/home']);
+      }
+      else{
+        this.notificationService.warn('Error Login details!');
+        this.router.navigate(['/userlogin']);
+      }
+    }
     );
-
-    if (this.a=='true') {
-      this.loggedIn.next(true);
-      this.router.navigate(['/home']);
-      this.notificationService.success("Successfull Login!");
-    }
-    else{
-      this.notificationService.warn('Error Login details!');
-    }
   }
 
   logout() {
     this.loggedIn.next(false);
+    this.a="false";
     this.router.navigate(['/userlogin']);
   }
 }
