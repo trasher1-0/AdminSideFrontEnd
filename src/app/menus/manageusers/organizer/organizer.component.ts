@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild, forwardRef } from '@angular/core';
+import { Component, OnInit, Injectable, forwardRef } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
 import { MatDialogRef } from '@angular/material';
 import { OrganizerService } from 'src/app/services/organizer.service';
+import { Router } from '@angular/router';
+import { VieworganizerComponent } from '../vieworganizer/vieworganizer.component';
 
 @Component({
   selector: 'app-organizer',
@@ -29,15 +31,12 @@ export class OrganizerComponent implements OnInit {
         this.service.updateOrganizer(this.service.form.value);
         console.log("Update");
         this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
         this.notificationService.success(':: Update successfully.');
+
       }
       else{
         this.service.saveOrganizer(this.service.form.value);
         console.log("Insert");
-        this.ngOnInit();
-        this.ngOnInit();
         this.ngOnInit();
         this.notificationService.success(':: Successfully Added.');
       }
