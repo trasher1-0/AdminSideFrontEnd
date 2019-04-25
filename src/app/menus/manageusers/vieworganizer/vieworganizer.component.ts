@@ -25,10 +25,7 @@ export class VieworganizerComponent implements OnInit {
   constructor(
     private organizerService : OrganizerService ,
     private dialog: MatDialog,
-    private notificationService: NotificationService,
-    
-
-    
+    private notificationService: NotificationService, 
     private dialogService: DialogService) { }
 
   ngOnInit() {
@@ -47,6 +44,8 @@ export class VieworganizerComponent implements OnInit {
           //   });
           // };
         });
+      console.log(this.listData);
+      console.log(this.organizers);
   }
 
   remove(id:string){

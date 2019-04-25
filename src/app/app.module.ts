@@ -35,6 +35,7 @@ import { AdminService } from './services/admin.service';
 import { ManagerobotComponent } from './menus/managerobot/managerobot.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth/auth.guard';
+import { RobotComponent } from './menus/managerobot/robot/robot.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AuthGuard } from './auth/auth.guard';
     VieworganizerComponent,
     OrganizerComponent,
     UserloginComponent,
-    ManagerobotComponent
+    ManagerobotComponent,
+    RobotComponent
   ],
   imports: [
     BrowserModule,

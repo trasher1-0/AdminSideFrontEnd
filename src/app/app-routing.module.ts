@@ -26,7 +26,7 @@ const routes: Routes = [
 
   { path: 'manageRobot' , 
     component : ManagerobotComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 

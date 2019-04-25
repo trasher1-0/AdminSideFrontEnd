@@ -1,3 +1,26 @@
-<p>
-  managerobot works!
-</p>
+<div class="container">
+<div class="row">
+<div *ngFor="let robot of robots">
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{robot.name}}</mat-card-title>
+      <mat-card-subtitle>Robot</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="../../../assets/img/{{robot.image}}.png"  alt="{{robot.image}}">
+    
+    <mat-card-content>
+        <p>
+          {{robot.details}}
+        </p>
+      </mat-card-content>
+    <mat-card-actions>
+      
+      <button mat-icon-button><mat-icon>launch</mat-icon></button>
+      <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+</div>
+</div>
