@@ -36,6 +36,7 @@ import { ManagerobotComponent } from './menus/managerobot/managerobot.component'
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { RobotComponent } from './menus/managerobot/robot/robot.component';
+import { RobotService } from './services/robot.service';
 
 @NgModule({
   declarations: [
@@ -88,8 +89,8 @@ import { RobotComponent } from './menus/managerobot/robot/robot.component';
   ],
   providers: [ContributorService,
     OrganizerService,AdminService,DatePipe,
-    AuthService, AuthGuard],
+    AuthService,RobotService, AuthGuard],
   bootstrap: [AppComponent],
-  entryComponents:[OrganizerComponent,LoginComponent]
+  entryComponents:[OrganizerComponent,LoginComponent,RobotComponent]
 })
 export class AppModule { }
