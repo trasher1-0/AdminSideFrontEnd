@@ -63,8 +63,15 @@ export class ManagerobotComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     this.dialog.open(RobotComponent,dialogConfig);
+  } 
+  onEdit(robot) {
+    console.log(robot);
+    this.robotService.populateForm(robot);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(RobotComponent,dialogConfig);
   }
-
-  
 
 }

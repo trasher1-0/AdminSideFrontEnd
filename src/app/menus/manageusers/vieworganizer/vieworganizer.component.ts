@@ -44,8 +44,6 @@ export class VieworganizerComponent implements OnInit {
           //   });
           // };
         });
-      console.log(this.listData);
-      console.log(this.organizers);
   }
 
   remove(id:string){

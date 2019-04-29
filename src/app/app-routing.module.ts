@@ -20,7 +20,7 @@ const routes: Routes = [
 
   { path: 'admin' , 
     component : AdminComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
@@ -32,31 +32,34 @@ const routes: Routes = [
 
   { path: 'manageUsers' , 
     component : ManageusersComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'systemStatistics' , 
     component : SystemstatisticsComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'invoices' , 
     component : InvoicesComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'messages' , 
     component : MessagesComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   {path: 'home' , component : HomeComponent,
-  canActivate: [AuthGuard]},
-  //{path: 'registerUsers' , component : RegusersComponent},
+  // canActivate: [AuthGuard]
+  },
+
+  {path: '' , component : UserloginComponent},
+
   {
     path: '**',
     redirectTo: ''

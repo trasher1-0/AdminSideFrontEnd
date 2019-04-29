@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RobotService } from 'src/app/services/robot.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { MatDialogRef } from '@angular/material';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-robot',
@@ -12,7 +13,8 @@ export class RobotComponent implements OnInit {
 
   constructor(private service: RobotService,
     private notificationService: NotificationService,
-    public dialogRef: MatDialogRef<RobotComponent>
+    public dialogRef: MatDialogRef<RobotComponent>,
+
   ) {}
 
   ngOnInit() {
@@ -44,6 +46,8 @@ export class RobotComponent implements OnInit {
     }
   }
 
+  
+
   onClose() {
     this.service.form.reset();
     this.service.initializeFormGroup();
@@ -54,7 +58,6 @@ export class RobotComponent implements OnInit {
   onSelectFile(event) { // called each time file input changes
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
-
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
       reader.onload = (event) => { // called once readAsDataURL is completed

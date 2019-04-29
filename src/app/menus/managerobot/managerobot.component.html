@@ -22,7 +22,7 @@
       <mat-card-title>{{robot.name}}</mat-card-title>
       <mat-card-subtitle>Robot</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="../../../assets/img/{{robot.image}}.png"  alt="{{robot.image}}">
+    <img mat-card-image src=""  alt="{{robot.image}}">
     
     <mat-card-content>
         <p>
@@ -31,8 +31,8 @@
       </mat-card-content>
     <mat-card-actions>
       
-      <button mat-icon-button><mat-icon>launch</mat-icon></button>
-      <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+      <button mat-icon-button (click)="onEdit(robot)"><mat-icon>launch</mat-icon></button>
+      <button mat-icon-button color="warn" (click)="remove(robot.id)"><mat-icon>delete_outline</mat-icon></button>
     </mat-card-actions>
   </mat-card>
 </div>
