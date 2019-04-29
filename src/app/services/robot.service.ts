@@ -18,7 +18,7 @@ export class RobotService {
     id: new FormControl(null),
     name: new FormControl('', Validators.required),
     details: new FormControl('', Validators.required),
-    image: new FormControl(null)
+    image: new FormControl('')
   });
 
   initializeFormGroup() {
@@ -26,7 +26,7 @@ export class RobotService {
       id: null,
       name: '',
       details: '',
-      image: null
+      image: ''
     });
   }
 

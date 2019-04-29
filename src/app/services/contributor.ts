@@ -4,5 +4,7 @@ export class Contributor{
     fullname : string;
     address : string;
     city : string;
+    mobile : string;
+    email:string;
     password : string;
 }

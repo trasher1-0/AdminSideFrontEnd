@@ -37,6 +37,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { RobotComponent } from './menus/managerobot/robot/robot.component';
 import { RobotService } from './services/robot.service';
+import { ContributorComponent } from './menus/manageusers/contributor/contributor.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { RobotService } from './services/robot.service';
     OrganizerComponent,
     UserloginComponent,
     ManagerobotComponent,
-    RobotComponent
+    RobotComponent,
+    ContributorComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +93,6 @@ import { RobotService } from './services/robot.service';
     OrganizerService,AdminService,DatePipe,
     AuthService,RobotService, AuthGuard],
   bootstrap: [AppComponent],
-  entryComponents:[OrganizerComponent,LoginComponent,RobotComponent]
+  entryComponents:[OrganizerComponent,LoginComponent,RobotComponent,ContributorComponent]
 })
 export class AppModule { }

@@ -17,6 +17,12 @@ export class RobotComponent implements OnInit {
 
   ) {}
 
+  fileData: File = null;
+
+  fileProgress(fileInput: any) {
+    this.fileData = <File>fileInput.target.files[0];
+  }
+  
   ngOnInit() {
   }
 

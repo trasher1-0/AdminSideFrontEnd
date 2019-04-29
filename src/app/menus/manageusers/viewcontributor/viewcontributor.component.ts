@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ContributorService } from '../../../services/contributor.service';
-import { MatDialog, MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatDialog, MatTableDataSource, MatSort, MatPaginator, MatDialogConfig } from '@angular/material';
 import { NotificationService } from 'src/app/services/notification.service';
 import { DialogService } from 'src/app/services/dialog.service';
+import { ContributorComponent } from '../contributor/contributor.component';
 
 @Component({
   selector: 'app-viewcontributor',
@@ -15,7 +16,7 @@ export class ViewcontributorComponent implements OnInit {
 
   contributors: Array<any>;
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'username', 'fullname', 'address','city','password','actions'];
+  displayedColumns: string[] = ['id', 'username', 'fullname', 'address','city','mobile','email','password','actions'];
   @ViewChild(MatSort) sort: MatSort;
 
   searchKey: string;
@@ -76,20 +77,21 @@ export class ViewcontributorComponent implements OnInit {
 
 
   onCreate() {
-    // this.service.initializeFormGroup();
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.width = "60%";
-    // this.dialog.open(EmployeeComponent,dialogConfig);
+    this.contributorService.initializeFormGroup();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(ContributorComponent,dialogConfig);
   }
 
   onEdit(row){
-    // this.service.populateForm(row);
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.width = "60%";
-    // this.dialog.open(EmployeeComponent,dialogConfig);
+    console.log(row);
+    this.contributorService.populateForm(row);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(ContributorComponent,dialogConfig);
   }
 }

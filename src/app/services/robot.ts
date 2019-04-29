@@ -1,6 +1,6 @@
 export class Robot{
-    id : string;
+    id : BigInteger;
     name : string;
     details : string;
-    image : File;
+    image : string;
 }
