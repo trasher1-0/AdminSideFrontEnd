@@ -20,7 +20,9 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="true" *ngIf="isLoggedIn$ | async as isLoggedIn">
+      [opened]="true"
+    >
+    <!-- *ngIf="isLoggedIn$ | async as isLoggedIn" -->
     <mat-toolbar></mat-toolbar>
     <mat-toolbar><img class="img" src="assets/img/logo.png" width=120px height=120px></mat-toolbar>
     <br><br/><br/>

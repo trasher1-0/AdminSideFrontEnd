@@ -38,6 +38,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { RobotComponent } from './menus/managerobot/robot/robot.component';
 import { RobotService } from './services/robot.service';
 import { ContributorComponent } from './menus/manageusers/contributor/contributor.component';
+import { CustomerComponent } from './menus/home/customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ContributorComponent } from './menus/manageusers/contributor/contributo
     UserloginComponent,
     ManagerobotComponent,
     RobotComponent,
-    ContributorComponent
+    ContributorComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
