@@ -1,3 +1,4 @@
+<ng *matCellDef="let element"></ng>
 <div class="mat-elevation-z8">
 <div class="search-div">
   <mat-form-field class="search-form-field" floatLabel="never">
@@ -8,7 +9,6 @@
   </mat-form-field>
 </div>
   <table mat-table [dataSource]="listData">
-
     <!-- Position Column -->
     <ng-container matColumnDef="invoiceno">
       <th mat-header-cell *matHeaderCellDef> Invoice No. </th>
