@@ -40,6 +40,7 @@ import { RobotService } from './services/robot.service';
 import { ContributorComponent } from './menus/manageusers/contributor/contributor.component';
 import { CustomerComponent } from './menus/home/customer/customer.component';
 import { InvoicesuccessComponent } from './menus/home/invoicesuccess/invoicesuccess.component';
+import { EmailComponent } from './menus/home/customer/email/email.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { InvoicesuccessComponent } from './menus/home/invoicesuccess/invoicesucc
     RobotComponent,
     ContributorComponent,
     CustomerComponent,
-    InvoicesuccessComponent
+    InvoicesuccessComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +99,6 @@ import { InvoicesuccessComponent } from './menus/home/invoicesuccess/invoicesucc
     OrganizerService,AdminService,DatePipe,
     AuthService,RobotService, AuthGuard],
   bootstrap: [AppComponent],
-  entryComponents:[OrganizerComponent,LoginComponent,RobotComponent,ContributorComponent]
+  entryComponents:[OrganizerComponent,LoginComponent,RobotComponent,ContributorComponent,EmailComponent]
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
-import { MatPaginator, MatTableDataSource, MatSort, MatDialog } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogConfig } from '@angular/material';
 import { NotificationService } from 'src/app/services/notification.service';
 import { DialogService } from 'src/app/services/dialog.service';
+import { EmailComponent } from './email/email.component';
 
 @Component({
   selector: 'app-customer',
@@ -60,6 +61,19 @@ export class CustomerComponent implements OnInit {
       }
          
     });
+  }
+
+  message(email:string){
+    console.log(email);
+    this.customerService.populateForm({
+      'email':email,
+      'message':''
+    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(EmailComponent,dialogConfig);
   }
 
   onSearchClear() {

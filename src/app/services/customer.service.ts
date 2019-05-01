@@ -13,26 +13,15 @@ export class CustomerService {
   public CUSTOMER_API = this.API + '/customer';
 
   form: FormGroup = new FormGroup({
-    invoiceno: new FormControl(null),
-    username: new FormControl('', Validators.required),
-    fullname: new FormControl('', Validators.required),
-    address: new FormControl('', Validators.required),
-    city: new FormControl('',Validators.required),
-    mobile: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
     email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',[Validators.required,Validators.minLength(8)])
+    message: new FormControl('',Validators.required)
+
   });
 
   initializeFormGroup() {
     this.form.setValue({
-      invoiceno: null,
-      username: '',
-      fullname: '',
-      address: '',
-      city: '',
-      mobile: '',
       email: '',
-      password: ''
+      message: ''
     });
   }
 
