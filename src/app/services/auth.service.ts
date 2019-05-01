@@ -33,7 +33,7 @@ export class AuthService {
     }).subscribe(data=>{
       this.a=data.toString();
       console.log(this.a);
-      if (this.a=='true') {
+      if (this.a=='true' && user.userName=='admin') {
         this.loggedIn.next(true);
         this.notificationService.success("Successfull Login!");
         this.router.navigate(['/home']);
