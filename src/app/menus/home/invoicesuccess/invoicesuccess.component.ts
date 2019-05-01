@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CustomerService } from 'src/app/services/customer.service';
 import { MatPaginator, MatTableDataSource, MatSort, MatDialog } from '@angular/material';
+import { CustomerService } from 'src/app/services/customer.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  selector: 'app-invoicesuccess',
+  templateUrl: './invoicesuccess.component.html',
+  styleUrls: ['./invoicesuccess.component.scss']
 })
-export class CustomerComponent implements OnInit {
+export class InvoicesuccessComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
@@ -27,11 +27,11 @@ export class CustomerComponent implements OnInit {
     private dialogService: DialogService) { }
 
   ngOnInit() {
-    this.customerService.getPendingCustomers().subscribe(data=>{
+    this.customerService.getCompleteCustomers().subscribe(data=>{
         this.customers=data;
       });
     
-      this.customerService.getPendingCustomers().subscribe(
+      this.customerService.getCompleteCustomers().subscribe(
         list => {
           this.listData = new MatTableDataSource(list);
           this.listData.sort = this.sort;

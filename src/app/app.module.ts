@@ -39,6 +39,7 @@ import { RobotComponent } from './menus/managerobot/robot/robot.component';
 import { RobotService } from './services/robot.service';
 import { ContributorComponent } from './menus/manageusers/contributor/contributor.component';
 import { CustomerComponent } from './menus/home/customer/customer.component';
+import { InvoicesuccessComponent } from './menus/home/invoicesuccess/invoicesuccess.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { CustomerComponent } from './menus/home/customer/customer.component';
     ManagerobotComponent,
     RobotComponent,
     ContributorComponent,
-    CustomerComponent
+    CustomerComponent,
+    InvoicesuccessComponent
   ],
   imports: [
     BrowserModule,

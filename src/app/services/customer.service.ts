@@ -41,6 +41,14 @@ export class CustomerService {
     return this.http.get(this.CUSTOMER_API);
   }
 
+  getPendingCustomers(): Observable<any>{
+    return this.http.get(this.CUSTOMER_API+'/pending');
+  }
+
+  getCompleteCustomers(): Observable<any>{
+    return this.http.get(this.CUSTOMER_API+'/complete');
+  }
+
   getCustomer(id: string) {
     return this.http.get(this.CUSTOMER_API + '/' + id);
   }
