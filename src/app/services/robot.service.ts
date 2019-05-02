@@ -14,11 +14,11 @@ export class RobotService {
   public API = 'http://localhost:8080/trasher/api';
   public ROBOT_API = this.API + '/robot';
 
-  form: FormGroup = new FormGroup({
+  public form: FormGroup = new FormGroup({
     id: new FormControl(null),
     name: new FormControl('', Validators.required),
     details: new FormControl('', Validators.required),
-    image: new FormControl('')
+    image: new FormControl(null,Validators.required)
   });
 
   initializeFormGroup() {
@@ -26,7 +26,7 @@ export class RobotService {
       id: null,
       name: '',
       details: '',
-      image: ''
+      image: null
     });
   }
 
@@ -43,9 +43,10 @@ export class RobotService {
     return this.http.delete(this.ROBOT_API + '/'+id);
   }
 
-  saveRobot(robot: any){
+  saveRobot(robot: Robot){
     console.log(robot);
-    return this.http.post(this.ROBOT_API, robot).subscribe();
+    return this.http.post(this.ROBOT_API, robot).subscribe() && 
+    this.http.post('http://localhost:8080/trasher/api/file/upload',robot.image).subscribe();
   }
 
   updateRobot(robot : any) {

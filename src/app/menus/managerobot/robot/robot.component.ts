@@ -32,6 +32,8 @@ export class RobotComponent implements OnInit {
   }
 
   onSubmit() {
+    const sd = new FormData();
+    sd.append('image',this.selectedFile,this.selectedFile.name);
     if (this.service.form.valid) {
       if (this.service.form.get('id').value){
         this.service.updateRobot(this.service.form.value);
@@ -61,8 +63,12 @@ export class RobotComponent implements OnInit {
   }
 
   url: string;
+  selectedFile:File = null;
+
   onSelectFile(event) { // called each time file input changes
+    console.log(event);
     if (event.target.files && event.target.files[0]) {
+      this.selectedFile = <File>event.target.files[0];
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
