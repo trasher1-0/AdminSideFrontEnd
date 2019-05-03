@@ -18,7 +18,7 @@ export class RobotService {
     id: new FormControl(null),
     name: new FormControl('', Validators.required),
     details: new FormControl('', Validators.required),
-    image: new FormControl(null,Validators.required)
+    image: new FormControl('',Validators.required)
   });
 
   initializeFormGroup() {
@@ -26,7 +26,7 @@ export class RobotService {
       id: null,
       name: '',
       details: '',
-      image: null
+      image: ''
     });
   }
 
@@ -43,17 +43,23 @@ export class RobotService {
     return this.http.delete(this.ROBOT_API + '/'+id);
   }
 
-  saveRobot(robot: Robot){
-    console.log(robot);
-    return this.http.post(this.ROBOT_API, robot).subscribe() && 
-    this.http.post('http://localhost:8080/trasher/api/file/upload',robot.image).subscribe();
+  saveRobot(robot: Robot,selectedFile: File){
+    const sd = new FormData();
+    sd.append('file',selectedFile,selectedFile.name);
+    const rob={
+      "name":robot.name,
+      "details":robot.details,
+      "image":selectedFile.name
+    }
+    console.log("Return");
+    return this.http.post(this.ROBOT_API, rob).subscribe() && 
+    this.http.post(this.API+"/file/upload",sd).subscribe();
+    // this.http.post('http://localhost:8080/trasher/api/file/upload',sd).subscribe();
   }
 
   updateRobot(robot : any) {
     return this.http.put(this.ROBOT_API+'/'+robot.id,robot).subscribe();
   }
-
-  
 
   populateForm(robot: Robot) {
     this.form.setValue(robot);

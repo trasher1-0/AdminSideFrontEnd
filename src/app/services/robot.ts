@@ -2,5 +2,5 @@ export class Robot{
     id : BigInteger;
     name : string;
     details : string;
-    image : File;
+    image : string;
 }

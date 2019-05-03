@@ -3,6 +3,7 @@ import { RobotService } from 'src/app/services/robot.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { MatDialogRef } from '@angular/material';
 import { DialogService } from 'src/app/services/dialog.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-robot',
@@ -14,6 +15,7 @@ export class RobotComponent implements OnInit {
   constructor(private service: RobotService,
     private notificationService: NotificationService,
     public dialogRef: MatDialogRef<RobotComponent>,
+    private http:HttpClient
 
   ) {}
 
@@ -32,8 +34,6 @@ export class RobotComponent implements OnInit {
   }
 
   onSubmit() {
-    const sd = new FormData();
-    sd.append('image',this.selectedFile,this.selectedFile.name);
     if (this.service.form.valid) {
       if (this.service.form.get('id').value){
         this.service.updateRobot(this.service.form.value);
@@ -43,7 +43,7 @@ export class RobotComponent implements OnInit {
 
       }
       else{
-        this.service.saveRobot(this.service.form.value);
+        this.service.saveRobot(this.service.form.value,this.selectedFile);
         console.log("Insert");
         this.ngOnInit();
         this.notificationService.success(':: Successfully Added.');
@@ -71,7 +71,6 @@ export class RobotComponent implements OnInit {
       this.selectedFile = <File>event.target.files[0];
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); // read file as data url
-
       reader.onload = (event) => { // called once readAsDataURL is completed
         this.url = event.target['result'];
       }

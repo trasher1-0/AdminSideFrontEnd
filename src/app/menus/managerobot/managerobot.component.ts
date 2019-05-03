@@ -25,7 +25,7 @@ export class ManagerobotComponent implements OnInit {
   ngOnInit() {
     this.robotService.getAllrobots().subscribe(data=>{
       this.robots=data;
-      console.log(this.robots);
+      //console.log(this.robots);
     });  
   }
 
@@ -35,11 +35,11 @@ export class ManagerobotComponent implements OnInit {
       if(res){
         this.robotService.deleteRobot(id).subscribe(result => {
         }, error => console.error(error));
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
+        // this.ngOnInit();
+        // this.ngOnInit();
+        // this.ngOnInit();
+        // this.ngOnInit();
+        // this.ngOnInit();
         this.ngOnInit();
         this.notificationService.warn('! Deleted successfully');      
       }    
