@@ -9,9 +9,14 @@ import { AuthGuard } from '../auth/auth.guard';
 @Injectable()
 export class AuthService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private loggedInCon: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();
+  }
+
+  get isLoggedInCon() {
+    return this.loggedInCon.asObservable();
   }
   
   constructor(
@@ -25,7 +30,7 @@ export class AuthService {
   public ADMINAUTH_API = this.API + '/adminAuth';
   public a:string;
   
-  login(user: User) {
+  loginAdmin(user: User) {
     console.log(user);
     this.http.post(this.ADMINAUTH_API,{
       'username':user.userName,
@@ -46,8 +51,39 @@ export class AuthService {
     );
   }
 
-  logout() {
+  logoutAdmin() {
     this.loggedIn.next(false);
+    this.a="false";
+    this.router.navigate(['/userlogin']);
+  }
+
+  //Contributor login 
+
+  public CONTRIAUTH_API = this.API + '/contributorAuth';
+  
+  loginContributor(user: User) {
+    console.log(user);
+    this.http.post(this.CONTRIAUTH_API,{
+      'username':user.userName,
+      'password':user.password
+    }).subscribe(data=>{
+      this.a=data.toString();
+      console.log(this.a);
+      if (this.a=='true') {
+        this.loggedInCon.next(true);
+        this.notificationService.success("Successfull Login!");
+        this.router.navigate(['contributor/home']);
+      }
+      else{
+        this.notificationService.warn('Error Login details!');
+        this.router.navigate(['/userlogin']);
+      }
+    }
+    );
+  }
+
+  logoutContributor() {
+    this.loggedInCon.next(false);
     this.a="false";
     this.router.navigate(['/userlogin']);
   }

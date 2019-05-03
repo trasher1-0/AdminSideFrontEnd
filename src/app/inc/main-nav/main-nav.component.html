@@ -1,5 +1,6 @@
 <mat-sidenav-container  class="sidenav-container">
   <mat-sidenav-content>
+    <!-- Admin Toolbar -->
     <mat-toolbar color="primary" *ngIf="isLoggedIn$ | async as isLoggedIn">
       <button
         type="button"
@@ -14,19 +15,37 @@
       <div class="col-md-10"></div>
       <button mat-button (click)="onLogout()" *ngIf="isLoggedIn">Logout <mat-icon>exit_to_app</mat-icon></button>
     </mat-toolbar>
+
+    <!-- Contributor toolbar -->
+    <mat-toolbar color="primary" *ngIf="isLoggedInCon$ | async as isLoggedInCon">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        >
+        <!-- *ngIf="isHandset$ | async" -->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Trasher</span>
+      <div class="col-md-10"></div>
+      <button mat-button (click)="onLogoutCon()" *ngIf="isLoggedInCon">Logout <mat-icon>exit_to_app</mat-icon></button>
+    </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>
   </mat-sidenav-content>
+
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="true"
-    >
-    <!-- *ngIf="isLoggedIn$ | async as isLoggedIn" -->
+      [opened]="true"  
+      *ngIf="isLoggedIn$ | async as isLoggedIn">
+
     <mat-toolbar></mat-toolbar>
     <mat-toolbar><img class="img" src="assets/img/logo.png" width=120px height=120px></mat-toolbar>
     <br><br/><br/>
-    <div class="wel">
+    
+    <div class="wel" *ngIf="isLoggedIn$ | async as isLoggedIn">
     <mat-nav-list>
       <mat-list-item>
         <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
@@ -55,6 +74,26 @@
       <mat-list-item>
         <a [routerLink]="['/messages']" mat-list-item routerLinkActive="active-list-item"><mat-icon>feedback</mat-icon>
           <p class="ex">Messages</p></a>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+  </mat-sidenav>
+  <!-- Contributor Menu -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="true"  
+  *ngIf="isLoggedInCon$ | async as isLoggedInCon">
+
+  <mat-toolbar></mat-toolbar>
+    <mat-toolbar><img class="img" src="assets/img/logo.png" width=120px height=120px></mat-toolbar>
+    <br><br/><br/>
+    
+  <div class="wel" *ngIf="isLoggedInCon$ | async as isLoggedInCon">
+    <mat-nav-list>
+      <mat-list-item>
+        <a  [routerLink]="['contributor/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+          <p class="ex">Home</p></a>
       </mat-list-item>
     </mat-nav-list>
   </div>

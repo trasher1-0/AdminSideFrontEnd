@@ -10,6 +10,8 @@ import { AdminComponent } from './admin/admin.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { ManagerobotComponent } from './menus/managerobot/managerobot.component';
 import { AuthGuard } from './auth/auth.guard';
+import { HomeConComponent } from './contributormenu/home-con/home-con.component';
+import { ContloginComponent } from './userlogin/contlogin/contlogin.component';
 
 const routes: Routes = [
   { path: '' , component : AdminComponent,
@@ -55,6 +57,13 @@ const routes: Routes = [
   },
 
   {path: 'home' , component : HomeComponent,
+  // canActivate: [AuthGuard]
+  },
+
+  {path: 'contributor/home' , component : HomeConComponent,
+  // canActivate: [AuthGuard]
+  },
+  {path: 'contlogin' , component : ContloginComponent,
   // canActivate: [AuthGuard]
   },
 

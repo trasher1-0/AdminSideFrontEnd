@@ -41,6 +41,10 @@ import { ContributorComponent } from './menus/manageusers/contributor/contributo
 import { CustomerComponent } from './menus/home/customer/customer.component';
 import { InvoicesuccessComponent } from './menus/home/invoicesuccess/invoicesuccess.component';
 import { EmailComponent } from './menus/home/customer/email/email.component';
+import { NavContributorComponent } from './inc/nav-contributor/nav-contributor.component';
+import { HomeConComponent } from './contributormenu/home-con/home-con.component';
+import { ContloginComponent } from './userlogin/contlogin/contlogin.component';
+import { AdminloginComponent } from './userlogin/adminlogin/adminlogin.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,11 @@ import { EmailComponent } from './menus/home/customer/email/email.component';
     ContributorComponent,
     CustomerComponent,
     InvoicesuccessComponent,
-    EmailComponent
+    EmailComponent,
+    NavContributorComponent,
+    HomeConComponent,
+    ContloginComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,

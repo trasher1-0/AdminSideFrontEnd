@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -17,16 +17,24 @@ export class MainNavComponent {
     );
   
   isLoggedIn$: Observable<boolean>;
+  isLoggedInCon$: Observable<boolean>;
 
   constructor(private authService: AuthService,
     private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
     this.isLoggedIn$ = this.authService.isLoggedIn;
+    this.isLoggedInCon$ = this.authService.isLoggedInCon;
+    console.log(this.isLoggedIn$);
+    console.log(this.isLoggedInCon$);
   }
 
   onLogout() {
-    this.authService.logout();
+    this.authService.logoutAdmin();
+  }
+
+  onLogoutCon() {
+    this.authService.logoutContributor();
   }
 
 }
