@@ -5,11 +5,17 @@ import { Router } from '@angular/router';
 import { User } from './user';
 import { NotificationService } from './notification.service';
 import { AuthGuard } from '../auth/auth.guard';
+import { Contributor } from './contributor';
+import { Organizer } from './organizer';
 
 @Injectable()
 export class AuthService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private loggedInCon: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private loggedInOrg: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  private user: BehaviorSubject<Contributor> = new BehaviorSubject<Contributor>(null);
+  private userOrg:BehaviorSubject<Organizer> =new BehaviorSubject<Organizer>(null);
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();
@@ -17,6 +23,18 @@ export class AuthService {
 
   get isLoggedInCon() {
     return this.loggedInCon.asObservable();
+  }
+
+  get isLoggedInOrg() {
+    return this.loggedInOrg.asObservable();
+  }
+
+  get getUser(){
+    return this.user.asObservable();
+  }
+
+  get getUserOrg(){
+    return this.userOrg.asObservable();
   }
   
   constructor(
@@ -26,6 +44,7 @@ export class AuthService {
   ) {
   }
 
+  //Admin Login
   public API = 'http://localhost:8080/trasher/api';
   public ADMINAUTH_API = this.API + '/adminAuth';
   public a:string;
@@ -33,12 +52,12 @@ export class AuthService {
   loginAdmin(user: User) {
     console.log(user);
     this.http.post(this.ADMINAUTH_API,{
-      'username':user.userName,
+      'username':user.username,
       'password':user.password
     }).subscribe(data=>{
       this.a=data.toString();
       console.log(this.a);
-      if (this.a=='true' && user.userName=='admin') {
+      if (this.a=='true' && user.username=='admin') {
         this.loggedIn.next(true);
         this.notificationService.success("Successfull Login!");
         this.router.navigate(['/home']);
@@ -60,18 +79,17 @@ export class AuthService {
   //Contributor login 
 
   public CONTRIAUTH_API = this.API + '/contributorAuth';
-  
-  loginContributor(user: User) {
-    console.log(user);
-    this.http.post(this.CONTRIAUTH_API,{
-      'username':user.userName,
-      'password':user.password
-    }).subscribe(data=>{
-      this.a=data.toString();
-      console.log(this.a);
-      if (this.a=='true') {
+  public cont:any;
+
+  loginContributor(contributor: Contributor) {
+    console.log(contributor);
+    this.http.post(this.CONTRIAUTH_API,contributor).subscribe(data=>{
+      this.cont=data;
+      console.log(this.cont);
+      if (this.cont.id!=null) {
         this.loggedInCon.next(true);
         this.notificationService.success("Successfull Login!");
+        this.user.next(this.cont);
         this.router.navigate(['contributor/home']);
       }
       else{
@@ -84,7 +102,37 @@ export class AuthService {
 
   logoutContributor() {
     this.loggedInCon.next(false);
-    this.a="false";
+    this.router.navigate(['/userlogin']);
+  }
+
+  //Organizer Login
+
+  //Contributor login 
+
+  public ORGAUTH_API = this.API + '/organizerAuth';
+  public org:any;
+
+  loginOrganizer(organizer: Organizer) {
+    console.log(organizer);
+    this.http.post(this.ORGAUTH_API,organizer).subscribe(data=>{
+      this.org=data;
+      console.log(this.org);
+      if (this.org.id!=null) {
+        this.loggedInOrg.next(true);
+        this.notificationService.success("Successfull Login!");
+        this.userOrg.next(this.org);
+        this.router.navigate(['organizer/home']);
+      }
+      else{
+        this.notificationService.warn('Error Login details!');
+        this.router.navigate(['/userlogin']);
+      }
+    }
+    );
+  }
+
+  logoutOrganizer() {
+    this.loggedInOrg.next(false);
     this.router.navigate(['/userlogin']);
   }
 }

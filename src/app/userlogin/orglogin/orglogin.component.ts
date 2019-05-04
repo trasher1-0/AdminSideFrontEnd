@@ -4,11 +4,11 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-adminlogin',
-  templateUrl: './adminlogin.component.html',
-  styleUrls: ['./adminlogin.component.scss']
+  selector: 'app-orglogin',
+  templateUrl: './orglogin.component.html',
+  styleUrls: ['./orglogin.component.scss']
 })
-export class AdminloginComponent implements OnInit {
+export class OrgloginComponent implements OnInit {
 
   form: FormGroup;
   private formSubmitAttempt: boolean;
@@ -35,8 +35,9 @@ export class AdminloginComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.authService.loginAdmin(this.form.value);
+      this.authService.loginOrganizer(this.form.value);
     }
     this.formSubmitAttempt = true;
   }
+
 }

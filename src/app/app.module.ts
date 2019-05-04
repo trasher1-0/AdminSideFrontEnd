@@ -45,6 +45,8 @@ import { NavContributorComponent } from './inc/nav-contributor/nav-contributor.c
 import { HomeConComponent } from './contributormenu/home-con/home-con.component';
 import { ContloginComponent } from './userlogin/contlogin/contlogin.component';
 import { AdminloginComponent } from './userlogin/adminlogin/adminlogin.component';
+import { HomeOrgComponent } from './organizermenu/home-org/home-org.component';
+import { OrgloginComponent } from './userlogin/orglogin/orglogin.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { AdminloginComponent } from './userlogin/adminlogin/adminlogin.component
     NavContributorComponent,
     HomeConComponent,
     ContloginComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    HomeOrgComponent,
+    OrgloginComponent
   ],
   imports: [
     BrowserModule,
