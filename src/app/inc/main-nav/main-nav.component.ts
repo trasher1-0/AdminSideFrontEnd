@@ -33,6 +33,8 @@ export class MainNavComponent {
   ngOnInit() {
     this.isLoggedIn$ = this.authService.isLoggedIn;
     this.isLoggedInCon$ = this.authService.isLoggedInCon;
+    this.isLoggedInOrg$ = this.authService.isLoggedInOrg;
+    
     this.contributor$ = this.authService.getUser;
     this.organizer$ = this.authService.getUserOrg;
 

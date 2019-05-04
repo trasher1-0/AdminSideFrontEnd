@@ -90,6 +90,7 @@ export class AuthService {
         this.loggedInCon.next(true);
         this.notificationService.success("Successfull Login!");
         this.user.next(this.cont);
+        console.log(this.loggedInCon);
         this.router.navigate(['contributor/home']);
       }
       else{

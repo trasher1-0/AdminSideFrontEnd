@@ -12,8 +12,8 @@
         <!-- *ngIf="isHandset$ | async" -->
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Trasher</span>
-      <div class="col-md-10"></div>
+      <span>Admin Dashboard</span>
+      <div class="col-md-9"></div>
       <button mat-button (click)="onLogout()" *ngIf="isLoggedIn">Logout <mat-icon>exit_to_app</mat-icon></button>
     </mat-toolbar>
 
@@ -29,8 +29,8 @@
         <!-- *ngIf="isHandset$ | async" -->
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Trasher</span>
-      <div class="col-md-10"></div>
+      <span>Event Contributor - {{user.username}}</span>
+      <div class="col-md-9"></div>
       <button mat-button (click)="onLogoutCon()" *ngIf="isLoggedInCon">Logout <mat-icon>exit_to_app</mat-icon></button>
     </mat-toolbar>
 
@@ -46,8 +46,8 @@
         <!-- *ngIf="isHandset$ | async" -->
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Trasher</span>
-      <div class="col-md-10"></div>
+      <span>Event Organizer - {{userOrg.username}}</span>
+      <div class="col-md-9"></div>
       <button mat-button (click)="onLogoutOrg()" *ngIf="isLoggedInOrg">Logout <mat-icon>exit_to_app</mat-icon></button>
     </mat-toolbar>
 
@@ -137,6 +137,17 @@
         <a  [routerLink]="['organizer/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
           <p class="ex">Home</p></a>
       </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['organizer/invoices']" mat-list-item routerLinkActive="active-list-item"><mat-icon>assignment</mat-icon>
+          <p class="ex">Invoices</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['organizer/managecontributor']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
+          <p class="ex">Manage Contributor</p></a>
+      </mat-list-item>
+
     </mat-nav-list>
   </div>
   </mat-sidenav>

@@ -13,6 +13,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { HomeConComponent } from './contributormenu/home-con/home-con.component';
 import { ContloginComponent } from './userlogin/contlogin/contlogin.component';
 import { HomeOrgComponent } from './organizermenu/home-org/home-org.component';
+import { ManagecontributorComponent } from './organizermenu/managecontributor/managecontributor.component';
 
 const routes: Routes = [
   { path: '' , component : AdminComponent,
@@ -64,8 +65,16 @@ const routes: Routes = [
   {path: 'contributor/home' , component : HomeConComponent,
   // canActivate: [AuthGuard]
   },
-  
+
   {path: 'organizer/home' , component : HomeOrgComponent,
+  // canActivate: [AuthGuard]
+  },
+
+  {path: 'organizer/managecontributor' , component : ManagecontributorComponent,
+  // canActivate: [AuthGuard]
+  },
+
+  {path: 'organizer/invoices' , component : InvoicesComponent,
   // canActivate: [AuthGuard]
   },
 

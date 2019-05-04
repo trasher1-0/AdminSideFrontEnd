@@ -47,6 +47,7 @@ import { ContloginComponent } from './userlogin/contlogin/contlogin.component';
 import { AdminloginComponent } from './userlogin/adminlogin/adminlogin.component';
 import { HomeOrgComponent } from './organizermenu/home-org/home-org.component';
 import { OrgloginComponent } from './userlogin/orglogin/orglogin.component';
+import { ManagecontributorComponent } from './organizermenu/managecontributor/managecontributor.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { OrgloginComponent } from './userlogin/orglogin/orglogin.component';
     ContloginComponent,
     AdminloginComponent,
     HomeOrgComponent,
-    OrgloginComponent
+    OrgloginComponent,
+    ManagecontributorComponent
   ],
   imports: [
     BrowserModule,
