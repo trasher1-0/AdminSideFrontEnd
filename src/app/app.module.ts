@@ -48,6 +48,7 @@ import { AdminloginComponent } from './userlogin/adminlogin/adminlogin.component
 import { HomeOrgComponent } from './organizermenu/home-org/home-org.component';
 import { OrgloginComponent } from './userlogin/orglogin/orglogin.component';
 import { ManagecontributorComponent } from './organizermenu/managecontributor/managecontributor.component';
+import { MonthUsageComponent } from './reports/month-usage/month-usage.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { ManagecontributorComponent } from './organizermenu/managecontributor/ma
     AdminloginComponent,
     HomeOrgComponent,
     OrgloginComponent,
-    ManagecontributorComponent
+    ManagecontributorComponent,
+    MonthUsageComponent
   ],
   imports: [
     BrowserModule,
