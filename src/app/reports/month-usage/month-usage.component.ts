@@ -31,8 +31,6 @@ export class MonthUsageComponent implements OnInit {
       console.log(this.labels);
       console.log(this.counts);
 
-    })
-
     this.LineChart=new Chart('linechart',{
       type:'line',
       data:{
@@ -62,6 +60,8 @@ export class MonthUsageComponent implements OnInit {
         }
       }
     });
+
+  })
 
     
   }
