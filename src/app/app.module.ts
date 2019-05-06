@@ -49,6 +49,8 @@ import { HomeOrgComponent } from './organizermenu/home-org/home-org.component';
 import { OrgloginComponent } from './userlogin/orglogin/orglogin.component';
 import { ManagecontributorComponent } from './organizermenu/managecontributor/managecontributor.component';
 import { MonthUsageComponent } from './reports/month-usage/month-usage.component';
+import { ReportService } from './services/report.service';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   declarations: [
@@ -113,7 +115,7 @@ import { MonthUsageComponent } from './reports/month-usage/month-usage.component
   ],
   providers: [ContributorService,
     OrganizerService,AdminService,DatePipe,
-    AuthService,RobotService, AuthGuard],
+    AuthService,RobotService, AuthGuard,ReportService,NotificationService],
   bootstrap: [AppComponent],
   entryComponents:[OrganizerComponent,LoginComponent,RobotComponent,ContributorComponent,EmailComponent]
 })

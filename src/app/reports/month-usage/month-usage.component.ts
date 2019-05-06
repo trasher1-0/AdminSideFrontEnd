@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReportService } from 'src/app/services/report.service';
 
 @Component({
   selector: 'app-month-usage',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonthUsageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:ReportService) { }
+
+  report:any;
 
   ngOnInit() {
+    this.service.getInvoices().subscribe(data=>{
+      this.report=data;
+      console.log(this.report);
+    })
+    
   }
 
 }
