@@ -43,6 +43,10 @@ export class ContributorService {
     return this.http.get(this.CONTRIBUTOR_API);
   }
 
+  getCount(): Observable<any>{
+    return this.http.get(this.CONTRIBUTOR_API+"/count");
+  }
+
   getContributor(id: string) {
     return this.http.get(this.CONTRIBUTOR_API + '/' + id);
   }

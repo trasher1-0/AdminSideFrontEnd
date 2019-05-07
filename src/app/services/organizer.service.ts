@@ -43,6 +43,10 @@ export class OrganizerService {
     return this.http.get(this.ORGANIZER_API);
   }
 
+  getCount(): Observable<any>{
+    return this.http.get(this.ORGANIZER_API+"/count");
+  }
+
   getOrganizer(id: string) {
     return this.http.get(this.ORGANIZER_API + '/' + id);
   }

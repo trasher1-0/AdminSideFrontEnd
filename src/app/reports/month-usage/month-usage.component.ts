@@ -30,14 +30,20 @@ export class MonthUsageComponent implements OnInit {
 
       console.log(this.labels);
       console.log(this.counts);
+      this.generateGraph();
 
-    this.LineChart=new Chart('linechart',{
+  })
+  
+  }
+
+  generateGraph(){
+    const LineChart=new Chart('linechart',{
       type:'line',
       data:{
         labels:this.labels,
 
         datasets:[{
-          label:"No of Invoice of Months",
+          label:"Completed Invoices",
           data:this.counts,
           fill:false,
           lineTension:0.2,
@@ -48,7 +54,7 @@ export class MonthUsageComponent implements OnInit {
 
       options:{
         title:{
-          text:"LineChart",
+          text:"Invoices History",
           display:true
         },
         scales:{
@@ -60,10 +66,6 @@ export class MonthUsageComponent implements OnInit {
         }
       }
     });
-
-  })
-
-    
   }
 
 }

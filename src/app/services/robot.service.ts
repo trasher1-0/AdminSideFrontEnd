@@ -64,4 +64,8 @@ export class RobotService {
   populateForm(robot: Robot) {
     this.form.setValue(robot);
   }
+
+  getCount(): Observable<any>{
+    return this.http.get(this.ROBOT_API+"/count");
+  }
 }

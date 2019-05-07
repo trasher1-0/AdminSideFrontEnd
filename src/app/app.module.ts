@@ -51,6 +51,9 @@ import { ManagecontributorComponent } from './organizermenu/managecontributor/ma
 import { MonthUsageComponent } from './reports/month-usage/month-usage.component';
 import { ReportService } from './services/report.service';
 import { NotificationService } from './services/notification.service';
+import { DonutChartComponent } from './reports/donut-chart/donut-chart.component';
+import { ChartsModule } from 'ng2-charts';
+import { UserCountComponent } from './reports/user-count/user-count.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,9 @@ import { NotificationService } from './services/notification.service';
     HomeOrgComponent,
     OrgloginComponent,
     ManagecontributorComponent,
-    MonthUsageComponent
+    MonthUsageComponent,
+    DonutChartComponent,
+    UserCountComponent
   ],
   imports: [
     BrowserModule,
@@ -111,7 +116,8 @@ import { NotificationService } from './services/notification.service';
     MatDialogModule,
     MatSnackBarModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [ContributorService,
     OrganizerService,AdminService,DatePipe,
