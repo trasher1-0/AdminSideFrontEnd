@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-systemstatistics',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SystemstatisticsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) {}
+  public cameraUrl : SafeUrl;
 
   ngOnInit() {
+    let url = "http://192.168.43.165:8000/index.html";
+    this.cameraUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    console.log(this.cameraUrl);
   }
 
 }

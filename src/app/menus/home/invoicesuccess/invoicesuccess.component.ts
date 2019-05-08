@@ -45,11 +45,12 @@ export class InvoicesuccessComponent implements OnInit {
   }
 
   remove(id:string){
+    console.log(id);
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
     .afterClosed().subscribe(res =>{
       if(res){
         this.customerService.deleteCustomer(id).subscribe(result => {
-        }, error => console.error(error));
+        }, error => console.log(error));
         this.ngOnInit();
         this.ngOnInit();
         this.ngOnInit();
