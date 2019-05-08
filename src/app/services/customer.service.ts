@@ -57,4 +57,12 @@ export class CustomerService {
   populateForm(customer: any) {
     this.form.setValue(customer);
   }
+
+  getCountComplete(): Observable<any>{
+    return this.http.get(this.CUSTOMER_API+"/countSuccess");
+  }
+
+  getCountPending(): Observable<any>{
+    return this.http.get(this.CUSTOMER_API+"/countPending");
+  }
 }
