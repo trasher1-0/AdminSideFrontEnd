@@ -14,6 +14,7 @@ import { HomeConComponent } from './contributormenu/home-con/home-con.component'
 import { ContloginComponent } from './userlogin/contlogin/contlogin.component';
 import { HomeOrgComponent } from './organizermenu/home-org/home-org.component';
 import { ManagecontributorComponent } from './organizermenu/managecontributor/managecontributor.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   { path: '' , component : AdminComponent,
@@ -82,11 +83,11 @@ const routes: Routes = [
   // canActivate: [AuthGuard]
   },
 
-  {path: '' , component : UserloginComponent},
+  {path: '' , redirectTo: 'userlogin', pathMatch: 'full'},
 
   {
     path: '**',
-    redirectTo: ''
+    component:PagenotfoundComponent
   },
 
 ];

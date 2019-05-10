@@ -54,6 +54,7 @@ import { NotificationService } from './services/notification.service';
 import { DonutChartComponent } from './reports/donut-chart/donut-chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { UserCountComponent } from './reports/user-count/user-count.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { UserCountComponent } from './reports/user-count/user-count.component';
     ManagecontributorComponent,
     MonthUsageComponent,
     DonutChartComponent,
-    UserCountComponent
+    UserCountComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
