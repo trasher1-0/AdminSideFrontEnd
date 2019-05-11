@@ -56,6 +56,7 @@ import { ChartsModule } from 'ng2-charts';
 import { UserCountComponent } from './reports/user-count/user-count.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProfileConComponent } from './contributormenu/home-con/profile-con/profile-con.component';
+import { ProfileOrgComponent } from './organizermenu/home-org/profile-org/profile-org.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { ProfileConComponent } from './contributormenu/home-con/profile-con/prof
     DonutChartComponent,
     UserCountComponent,
     PagenotfoundComponent,
-    ProfileConComponent
+    ProfileConComponent,
+    ProfileOrgComponent
   ],
   imports: [
     BrowserModule,
