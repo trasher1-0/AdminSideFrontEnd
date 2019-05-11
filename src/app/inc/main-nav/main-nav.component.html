@@ -30,7 +30,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Event Contributor - {{user.username}}</span>
-      <div class="col-md-9"></div>
+      <div class="col-md-8"></div>
       <button mat-button (click)="onLogoutCon()" *ngIf="isLoggedInCon">Logout <mat-icon>exit_to_app</mat-icon></button>
     </mat-toolbar>
 
@@ -47,7 +47,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Event Organizer - {{userOrg.username}}</span>
-      <div class="col-md-9"></div>
+      <div class="col-md-8"></div>
       <button mat-button (click)="onLogoutOrg()" *ngIf="isLoggedInOrg">Logout <mat-icon>exit_to_app</mat-icon></button>
     </mat-toolbar>
 
@@ -116,6 +116,17 @@
         <a  [routerLink]="['contributor/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
           <p class="ex">Home</p></a>
       </mat-list-item>
+
+      <mat-list-item>
+        <a  [routerLink]="['contributor/invoices']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>assignment</mat-icon>
+          <p class="ex">Invoices</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a  [routerLink]="['contributor/robotLiveFeed']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>android</mat-icon>
+          <p class="ex">Robots</p></a>
+      </mat-list-item>
+
     </mat-nav-list>
   </div>
   </mat-sidenav>

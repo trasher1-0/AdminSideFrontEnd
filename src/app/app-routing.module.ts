@@ -15,6 +15,7 @@ import { ContloginComponent } from './userlogin/contlogin/contlogin.component';
 import { HomeOrgComponent } from './organizermenu/home-org/home-org.component';
 import { ManagecontributorComponent } from './organizermenu/managecontributor/managecontributor.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { RobotComponent } from './menus/managerobot/robot/robot.component';
 
 const routes: Routes = [
   { path: '' , component : AdminComponent,
@@ -64,6 +65,14 @@ const routes: Routes = [
   },
 
   {path: 'contributor/home' , component : HomeConComponent,
+  // canActivate: [AuthGuard]
+  },
+
+  {path: 'contributor/invoices' , component : InvoicesComponent,
+  // canActivate: [AuthGuard]
+  },
+
+  {path: 'contributor/robotLiveFeed' , component : SystemstatisticsComponent,
   // canActivate: [AuthGuard]
   },
 

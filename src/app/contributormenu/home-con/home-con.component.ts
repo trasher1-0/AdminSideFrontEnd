@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Contributor } from 'src/app/services/contributor';
 import { AuthService } from 'src/app/services/auth.service';
-
 @Component({
   selector: 'app-home-con',
   templateUrl: './home-con.component.html',
@@ -14,12 +13,17 @@ export class HomeConComponent implements OnInit {
   
   contributor$:Observable<Contributor>;
   user:Contributor;
+  isLoggedIn:boolean=false;
 
   ngOnInit() {
     this.contributor$ = this.authService.getUser;
     this.contributor$.subscribe(data=>{
       this.user=data;
     });
+
+    if(this.user!=null){
+      this.isLoggedIn=true;
+    }
   }
 
 }
