@@ -21,14 +21,10 @@ export class ProfileConComponent implements OnInit {
     private notificationService: NotificationService,    
     private dialogService: DialogService) { }
   
-  contributor$:Observable<Contributor>;
-  user:Contributor;
+  user:any;
 
   ngOnInit() {
-    this.contributor$ = this.authService.getUser;
-    this.contributor$.subscribe(data=>{
-      this.user=data;
-    });
+    this.user=JSON.parse(localStorage.getItem('usercon'));
   }
 
   onEdit(row){

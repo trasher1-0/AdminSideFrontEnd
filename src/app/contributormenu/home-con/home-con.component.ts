@@ -11,14 +11,10 @@ export class HomeConComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
   
-  contributor$:Observable<Contributor>;
+  contributor$:any;
   user:Contributor;
 
   ngOnInit() {
-    this.contributor$ = this.authService.getUser;
-    this.contributor$.subscribe(data=>{
-      this.user=data;
-    });
   }
 
   get isLoggedIn(){

@@ -21,14 +21,10 @@ export class ProfileOrgComponent implements OnInit {
     private notificationService: NotificationService,    
     private dialogService: DialogService) { }
   
-  organizer$:Observable<Organizer>;
-  user:Organizer;
+  user:any;
 
   ngOnInit() {
-    this.organizer$ = this.authService.getUserOrg;
-    this.organizer$.subscribe(data=>{
-      this.user=data;
-    });
+    this.user=JSON.parse(localStorage.getItem('userorg'));
   }
 
   onEdit(row){
