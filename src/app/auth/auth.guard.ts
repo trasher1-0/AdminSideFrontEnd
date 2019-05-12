@@ -10,16 +10,15 @@ import { take, map } from 'rxjs/operators';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return this.authService.isLoggedIn.pipe(
-      take(1),
-      map((isLoggedIn: boolean) => {
-        if (!isLoggedIn) {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
+        if (localStorage.getItem('tokenadmin')==null &&
+        localStorage.getItem('tokencont')==null &&
+        localStorage.getItem('tokenorg')==null) {
           this.router.navigate(['/userlogin']);
           return false;
         }
-        return true;
-      })
-    );
+        else{
+          return true;
+        }
   }
 }

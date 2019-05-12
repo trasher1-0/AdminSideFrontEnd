@@ -1,3 +1,49 @@
-*{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+// *{
+//     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+// }
+
+
+span{
+  color: white;
 }
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 270px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.img{
+  margin-left: 50px;
+}
+
+.active-list-item {
+  color: #c62828; /* Note: You could also use a custom theme */
+}
+
+p.ex {
+  margin-left: 20px;
+}
+
+.active-list-item{
+  color: #ffffff;
+  background-color:#ffab40;
+}
+
+.wel{
+  background: #ffab40;
+  height: 73%;
+}
+  
+  

@@ -13,17 +13,16 @@ export class HomeConComponent implements OnInit {
   
   contributor$:Observable<Contributor>;
   user:Contributor;
-  isLoggedIn:boolean=false;
 
   ngOnInit() {
     this.contributor$ = this.authService.getUser;
     this.contributor$.subscribe(data=>{
       this.user=data;
     });
+  }
 
-    if(this.user!=null){
-      this.isLoggedIn=true;
-    }
+  get isLoggedIn(){
+    return localStorage.getItem('tokencont');
   }
 
 }

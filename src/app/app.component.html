@@ -1,6 +1,169 @@
-<app-main-nav>
-  <div class="container container-fluid">
+<mat-sidenav-container  class="sidenav-container">
+  <mat-sidenav-content>
+    <!-- Admin Toolbar -->
+    <mat-toolbar color="primary" *ngIf="tokenAdmin=='admin'">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+        >
+        <!-- *ngIf="isHandset$ | async" -->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+      <div class="col-md-9"></div>
+      <button mat-button (click)="onLogout()" *ngIf="tokenAdmin=='admin'">Logout <mat-icon>exit_to_app</mat-icon></button>
+    </mat-toolbar>
+
+    <!-- Contributor toolbar -->
+    <mat-toolbar color="primary" *ngIf="tokenCont=='cont'">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+        >
+        <!-- *ngIf="isHandset$ | async" -->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Event Contributor</span>
+      <div class="col-md-9"></div>
+      <button mat-button (click)="onLogoutCon()" *ngIf="tokenCont=='cont'">Logout <mat-icon>exit_to_app</mat-icon></button>
+    </mat-toolbar>
+
+    <!-- Organizer toolbar -->
+    <mat-toolbar color="primary" *ngIf="tokenOrg=='org'">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+        >
+        <!-- *ngIf="isHandset$ | async" -->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Event Organizer</span>
+      <div class="col-md-9"></div>
+      <button mat-button (click)="onLogoutOrg()" *ngIf="tokenOrg=='org'">Logout <mat-icon>exit_to_app</mat-icon></button>
+    </mat-toolbar>
+
+    <!-- Add Content Here -->
     <router-outlet>
+
     </router-outlet>
+
+  </mat-sidenav-content>
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="true"  
+      *ngIf="tokenAdmin=='admin'">
+
+    <mat-toolbar></mat-toolbar>
+    <mat-toolbar><img class="img" src="assets/img/logo.png" width=120px height=120px></mat-toolbar>
+    <br><br/><br/>
+    
+    <div class="wel" *ngIf="tokenAdmin=='admin'">
+    <mat-nav-list>
+      <mat-list-item>
+        <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+         <p class="ex">Dashboard</p></a>
+      </mat-list-item>
+      <mat-list-item>
+        <a [routerLink]="['/manageRobot']" mat-list-item routerLinkActive="active-list-item"><mat-icon>android</mat-icon>
+          <p class="ex">Manage Robot</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/manageUsers']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
+          <p class="ex">Manage Users</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/systemStatistics']" mat-list-item routerLinkActive="active-list-item"><mat-icon>bar_chart</mat-icon>
+          <p class="ex">System Statistics</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/invoices']" mat-list-item routerLinkActive="active-list-item"><mat-icon>assignment</mat-icon>
+          <p class="ex">Invoices</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/messages']" mat-list-item routerLinkActive="active-list-item"><mat-icon>feedback</mat-icon>
+          <p class="ex">Messages</p></a>
+      </mat-list-item>
+    </mat-nav-list>
   </div>
-</app-main-nav>
+  </mat-sidenav>
+  
+  <!-- Contributor Menu -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="true"  
+  *ngIf="tokenCont=='cont'">
+
+  <mat-toolbar></mat-toolbar>
+    <mat-toolbar><img class="img" src="assets/img/logo.png" width=120px height=120px></mat-toolbar>
+    <br><br/><br/>
+    
+  <div class="wel" *ngIf="tokenCont=='cont'">
+    <mat-nav-list>
+      <mat-list-item>
+        <a  [routerLink]="['contributor/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+          <p class="ex">Dashboard</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a  [routerLink]="['contributor/invoices']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>assignment</mat-icon>
+          <p class="ex">Invoices</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a  [routerLink]="['contributor/robotLiveFeed']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>android</mat-icon>
+          <p class="ex">Robots</p></a>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </div>
+  </mat-sidenav>
+
+  <!-- Organizer Menu -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="true"  
+  *ngIf="tokenOrg=='org'">
+
+  <mat-toolbar></mat-toolbar>
+    <mat-toolbar><img class="img" src="assets/img/logo.png" width=120px height=120px></mat-toolbar>
+    <br><br/><br/>
+    
+  <div class="wel" *ngIf="tokenOrg=='org'">
+    <mat-nav-list>
+      <mat-list-item>
+        <a  [routerLink]="['organizer/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+          <p class="ex">Home</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['organizer/invoices']" mat-list-item routerLinkActive="active-list-item"><mat-icon>assignment</mat-icon>
+          <p class="ex">Invoices</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['organizer/managecontributor']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
+          <p class="ex">Manage Contributor</p></a>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </div>
+  </mat-sidenav>
+
+</mat-sidenav-container>

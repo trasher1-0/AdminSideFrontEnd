@@ -29,8 +29,8 @@
         <!-- *ngIf="isHandset$ | async" -->
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Event Contributor - {{user.username}}</span>
-      <div class="col-md-8"></div>
+      <span>Event Contributor</span>
+      <div class="col-md-9"></div>
       <button mat-button (click)="onLogoutCon()" *ngIf="isLoggedInCon">Logout <mat-icon>exit_to_app</mat-icon></button>
     </mat-toolbar>
 
@@ -46,8 +46,8 @@
         <!-- *ngIf="isHandset$ | async" -->
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Event Organizer - {{userOrg.username}}</span>
-      <div class="col-md-8"></div>
+      <span>Event Organizer</span>
+      <div class="col-md-9"></div>
       <button mat-button (click)="onLogoutOrg()" *ngIf="isLoggedInOrg">Logout <mat-icon>exit_to_app</mat-icon></button>
     </mat-toolbar>
 
@@ -114,7 +114,7 @@
     <mat-nav-list>
       <mat-list-item>
         <a  [routerLink]="['contributor/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
-          <p class="ex">Home</p></a>
+          <p class="ex">Dashboard</p></a>
       </mat-list-item>
 
       <mat-list-item>

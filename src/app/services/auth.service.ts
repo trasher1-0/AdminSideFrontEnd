@@ -59,6 +59,7 @@ export class AuthService {
       console.log(this.a);
       if (this.a=='true' && user.username=='admin') {
         this.loggedIn.next(true);
+        localStorage.setItem('tokenadmin','admin');
         this.notificationService.success("Successfull Login!");
         this.router.navigate(['/home']);
       }
@@ -73,6 +74,7 @@ export class AuthService {
   logoutAdmin() {
     this.loggedIn.next(false);
     this.a="false";
+    localStorage.setItem('tokenadmin',null);
     this.router.navigate(['/userlogin']);
   }
 
@@ -92,6 +94,7 @@ export class AuthService {
         this.user.next(this.cont);
         console.log(this.loggedInCon);
         this.router.navigate(['contributor/home']);
+        localStorage.setItem('tokencont','cont');
       }
       else{
         this.notificationService.warn('Error Login details!');
@@ -103,6 +106,7 @@ export class AuthService {
 
   logoutContributor() {
     this.loggedInCon.next(false);
+    localStorage.setItem('tokencont',null);
     this.router.navigate(['/userlogin']);
   }
 
@@ -123,6 +127,7 @@ export class AuthService {
         this.notificationService.success("Successfull Login!");
         this.userOrg.next(this.org);
         this.router.navigate(['organizer/home']);
+        localStorage.setItem('tokenorg','org');
       }
       else{
         this.notificationService.warn('Error Login details!');
@@ -134,6 +139,7 @@ export class AuthService {
 
   logoutOrganizer() {
     this.loggedInOrg.next(false);
+    localStorage.setItem('tokenorg',null);
     this.router.navigate(['/userlogin']);
   }
 }

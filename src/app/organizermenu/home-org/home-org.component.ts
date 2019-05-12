@@ -14,17 +14,18 @@ export class HomeOrgComponent implements OnInit {
   
   organizer$:Observable<Organizer>;
   user:Organizer;
-  isLoggedIn:boolean=false;
 
   ngOnInit() {
     this.organizer$ = this.authService.getUserOrg;
     this.organizer$.subscribe(data=>{
       this.user=data;
     });
-    if(this.user!=null){
-      this.isLoggedIn=true;
-    }
   }
+
+  get isLoggedIn(){
+    return localStorage.getItem('tokenorg');
+  }
+
 
 
 }
