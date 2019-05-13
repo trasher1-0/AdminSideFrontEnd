@@ -18,78 +18,75 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RobotComponent } from './menus/managerobot/robot/robot.component';
 
 const routes: Routes = [
-  { path: '' , component : AdminComponent,
-    //canActivate: [AuthGuard],
-    //data: { roles: [Role.Admin] }
-  },
+  
   {path: 'userlogin' , component: UserloginComponent},
 
   { path: 'admin' , 
     component : AdminComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'manageRobot' , 
     component : ManagerobotComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'manageUsers' , 
     component : ManageusersComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'systemStatistics' , 
     component : SystemstatisticsComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'invoices' , 
     component : InvoicesComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   { path: 'messages' , 
     component : MessagesComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
   },
 
   {path: 'home' , component : HomeComponent,
-  // canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
   },
 
   {path: 'contributor/home' , component : HomeConComponent,
-  // canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
   },
 
   {path: 'contributor/invoices' , component : InvoicesComponent,
-  // canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
   },
 
   {path: 'contributor/robotLiveFeed' , component : SystemstatisticsComponent,
-  // canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
   },
 
   {path: 'organizer/home' , component : HomeOrgComponent,
-  // canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
   },
 
   {path: 'organizer/managecontributor' , component : ManagecontributorComponent,
-  // canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
   },
 
   {path: 'organizer/invoices' , component : InvoicesComponent,
-  // canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
   },
 
   {path: 'contlogin' , component : ContloginComponent,
-  // canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
   },
 
   {path: '' , redirectTo: 'userlogin', pathMatch: 'full'},
