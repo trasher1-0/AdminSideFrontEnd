@@ -16,6 +16,8 @@ import { HomeOrgComponent } from './organizermenu/home-org/home-org.component';
 import { ManagecontributorComponent } from './organizermenu/managecontributor/managecontributor.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RobotComponent } from './menus/managerobot/robot/robot.component';
+import { AdminloginComponent } from './userlogin/adminlogin/adminlogin.component';
+import { OrgloginComponent } from './userlogin/orglogin/orglogin.component';
 
 const routes: Routes = [
   
@@ -86,7 +88,15 @@ const routes: Routes = [
   },
 
   {path: 'contlogin' , component : ContloginComponent,
-  canActivate: [AuthGuard],
+
+  },
+
+  {path: 'adminlogin' , component : AdminloginComponent,
+
+  },
+  
+  {path: 'orglogin' , component : OrgloginComponent,
+
   },
 
   {path: '' , redirectTo: 'userlogin', pathMatch: 'full'},
