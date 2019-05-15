@@ -11,12 +11,17 @@
       <div class="controles-container">
 
         <mat-form-field>
-          <input readonly formControlName="email" matInput placeholder="Email">
+          <input formControlName="reciever" matInput placeholder="Email">
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <textarea formControlName="message" matInput placeholder="Message"></textarea>
+          <input formControlName="subject" matInput placeholder="Subject">
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea formControlName="body" matInput placeholder="Message"></textarea>
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
 

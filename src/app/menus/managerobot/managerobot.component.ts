@@ -25,7 +25,6 @@ export class ManagerobotComponent implements OnInit {
   ngOnInit() {
     this.robotService.getAllrobots().subscribe(data=>{
       this.robots=data;
-      //console.log(this.robots);
     });  
   }
 
@@ -35,14 +34,10 @@ export class ManagerobotComponent implements OnInit {
       if(res){
         this.robotService.deleteRobot(id).subscribe(result => {
         }, error => console.error(error));
-        // this.ngOnInit();
-        // this.ngOnInit();
-        // this.ngOnInit();
-        // this.ngOnInit();
-        // this.ngOnInit();
         this.ngOnInit();
-        this.notificationService.warn('! Deleted successfully');      
-      }    
+        this.notificationService.warn('! Deleted successfully');    
+      }
+      this.refresh();
     });
   }
 
@@ -62,7 +57,9 @@ export class ManagerobotComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(RobotComponent,dialogConfig);
+    this.dialog.open(RobotComponent,dialogConfig).afterClosed().subscribe(result=>{
+      this.refresh();
+    })
   } 
   onEdit(robot) {
     console.log(robot);
@@ -71,7 +68,14 @@ export class ManagerobotComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(RobotComponent,dialogConfig);
+    this.dialog.open(RobotComponent,dialogConfig).afterClosed().subscribe(result=>{
+      this.refresh();
+    })
+  }
+  refresh(){
+    this.robotService.getAllrobots().subscribe(data=>{
+      this.robots=data;
+    });  
   }
 
 }

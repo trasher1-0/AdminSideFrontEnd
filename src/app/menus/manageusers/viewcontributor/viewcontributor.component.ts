@@ -4,6 +4,7 @@ import { MatDialog, MatTableDataSource, MatSort, MatPaginator, MatDialogConfig }
 import { NotificationService } from 'src/app/services/notification.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { ContributorComponent } from '../contributor/contributor.component';
+import { componentRefresh } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-viewcontributor',
@@ -55,13 +56,9 @@ export class ViewcontributorComponent implements OnInit {
         this.contributorService.deleteContributor(id).subscribe(result => {
         }, error => console.error(error));
         this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.notificationService.warn('! Deleted successfully');      
+        this.notificationService.warn('! Deleted successfully');    
       }
+      this.refresh();  
          
     });
   }
@@ -82,7 +79,9 @@ export class ViewcontributorComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(ContributorComponent,dialogConfig);
+    this.dialog.open(ContributorComponent,dialogConfig).afterClosed().subscribe(result=>{
+      this.refresh();
+    })
   }
 
   onEdit(row){
@@ -92,6 +91,17 @@ export class ViewcontributorComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(ContributorComponent,dialogConfig);
+    this.dialog.open(ContributorComponent,dialogConfig).afterClosed().subscribe(result=>{
+      this.refresh();
+    })
+  }
+
+  refresh(){
+    this.contributorService.getAllContributors().subscribe(
+      list => {
+        this.listData = new MatTableDataSource(list);
+        this.listData.sort = this.sort;
+        this.listData.paginator = this.paginator;
+      });
   }
 }

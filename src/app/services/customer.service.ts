@@ -13,15 +13,17 @@ export class CustomerService {
   public CUSTOMER_API = this.API + '/customer';
 
   form: FormGroup = new FormGroup({
-    email: new FormControl('',[Validators.required,Validators.email]),
-    message: new FormControl('',Validators.required)
+    reciever: new FormControl('',[Validators.required,Validators.email]),
+    subject:new FormControl('',[Validators.required]),
+    body: new FormControl('',Validators.required)
 
   });
 
   initializeFormGroup() {
     this.form.setValue({
-      email: '',
-      message: ''
+      reciever: '',
+      subject:'',
+      body: ''
     });
   }
 

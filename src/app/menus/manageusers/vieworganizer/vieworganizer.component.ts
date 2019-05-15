@@ -52,14 +52,9 @@ export class VieworganizerComponent implements OnInit {
       if(res){
         this.organizerService.deleteOrganizer(id).subscribe(result => {
         }, error => console.error(error));
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.ngOnInit();
-        this.notificationService.warn('! Deleted successfully');      
+        this.notificationService.warn('! Deleted successfully');   
       }
+      this.refresh();
          
     });
   }
@@ -80,7 +75,9 @@ export class VieworganizerComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(OrganizerComponent,dialogConfig);
+    this.dialog.open(OrganizerComponent,dialogConfig).afterClosed().subscribe(result=>{
+      this.refresh();
+    })
   }
 
   onEdit(row){
@@ -90,7 +87,18 @@ export class VieworganizerComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(OrganizerComponent,dialogConfig);
+    this.dialog.open(OrganizerComponent,dialogConfig).afterClosed().subscribe(result=>{
+      this.refresh();
+    })
+  }
+
+  refresh(){
+    this.organizerService.getAllOrganizers().subscribe(
+      list => {
+        this.listData = new MatTableDataSource(list);
+        this.listData.sort = this.sort;
+        this.listData.paginator = this.paginator;
+      });
   }
 
 }

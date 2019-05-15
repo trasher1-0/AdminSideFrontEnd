@@ -66,8 +66,9 @@ export class CustomerComponent implements OnInit {
   message(email:string){
     console.log(email);
     this.customerService.populateForm({
-      'email':email,
-      'message':''
+      'reciever':email,
+      'subject':'',
+      'body':''
     });
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;

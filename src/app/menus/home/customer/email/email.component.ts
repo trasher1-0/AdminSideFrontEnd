@@ -3,6 +3,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { MatDialogRef } from '@angular/material';
 import { CustomerComponent } from '../customer.component';
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-email',
@@ -13,7 +14,8 @@ export class EmailComponent implements OnInit {
 
   constructor(private service: CustomerService,
     private notificationService: NotificationService,
-    public dialogRef: MatDialogRef<CustomerComponent>
+    public dialogRef: MatDialogRef<CustomerComponent>,
+    private emailService: EmailService
   ) {}
 
   ngOnInit() {
@@ -26,8 +28,13 @@ export class EmailComponent implements OnInit {
 
   onSubmit() {
     if (this.service.form.valid) {
-      if (this.service.form.get('message').value){
-        console.log("Sent");
+      if (this.service.form.get('body').value){
+        console.log(this.service.form.value);
+        this.emailService.sendMail(this.service.form.value).subscribe(data=>{
+          console.log(data);
+        });
+        this.notificationService.success("Email sent!");
+        this.onClose()
       }
     }
   }

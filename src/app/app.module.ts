@@ -57,6 +57,7 @@ import { UserCountComponent } from './reports/user-count/user-count.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProfileConComponent } from './contributormenu/home-con/profile-con/profile-con.component';
 import { ProfileOrgComponent } from './organizermenu/home-org/profile-org/profile-org.component';
+import { EmailService } from './services/email.service';
 
 @NgModule({
   declarations: [
@@ -127,7 +128,7 @@ import { ProfileOrgComponent } from './organizermenu/home-org/profile-org/profil
   ],
   providers: [ContributorService,
     OrganizerService,AdminService,DatePipe,
-    AuthService,RobotService, AuthGuard,ReportService,NotificationService],
+    AuthService,RobotService, AuthGuard,ReportService,NotificationService,EmailService],
   bootstrap: [AppComponent],
   entryComponents:[OrganizerComponent,LoginComponent,RobotComponent,ContributorComponent,EmailComponent]
 })
