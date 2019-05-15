@@ -65,7 +65,7 @@ export class AuthService {
       }
       else{
         this.notificationService.warn('Error Login details!');
-        this.router.navigate(['/adminlogin']);
+        this.router.navigate(['/userlogin']);
       }
     }
     );
@@ -99,7 +99,7 @@ export class AuthService {
       }
       else{
         this.notificationService.warn('Error Login details!');
-        this.router.navigate(['/contlogin']);
+        this.router.navigate(['/userlogin']);
       }
     }
     );
@@ -134,7 +134,7 @@ export class AuthService {
       }
       else{
         this.notificationService.warn('Error Login details!');
-        this.router.navigate(['/orglogin']);
+        this.router.navigate(['/userlogin']);
       }
     }
     );
