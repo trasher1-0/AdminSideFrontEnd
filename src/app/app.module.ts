@@ -58,6 +58,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProfileConComponent } from './contributormenu/home-con/profile-con/profile-con.component';
 import { ProfileOrgComponent } from './organizermenu/home-org/profile-org/profile-org.component';
 import { EmailService } from './services/email.service';
+import { ForumMessageComponent } from './menus/messages/forum-message/forum-message.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { EmailService } from './services/email.service';
     UserCountComponent,
     PagenotfoundComponent,
     ProfileConComponent,
-    ProfileOrgComponent
+    ProfileOrgComponent,
+    ForumMessageComponent
   ],
   imports: [
     BrowserModule,

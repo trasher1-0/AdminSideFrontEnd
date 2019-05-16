@@ -19,6 +19,14 @@ export class MessageService {
     return this.http.get(this.API);
   }
 
+  getRead(){
+    return this.http.get(this.API+"/read");
+  }
+
+  getUnread(){
+    return this.http.get(this.API+"/unread");
+  }
+
   deleteMessage(id:string){
     return this.http.delete(this.API+"/"+id);
   }
