@@ -32,7 +32,9 @@ export class OrganizerComponent implements OnInit {
         console.log("Update");
         this.ngOnInit();
         this.notificationService.success(':: Update successfully.');
-        localStorage.setItem('userorg',JSON.stringify(this.service.getOrganizer(this.service.form.get('id').value)));
+        this.service.getOrganizer(this.service.form.get('id').value).subscribe(data=>{
+          localStorage.setItem('userorg',JSON.stringify(data));
+        });
 
       }
       else{

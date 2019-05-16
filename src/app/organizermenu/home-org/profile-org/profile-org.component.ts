@@ -34,8 +34,13 @@ export class ProfileOrgComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(OrganizerComponent,dialogConfig);
-    this.ngOnInit();
+    this.dialog.open(OrganizerComponent,dialogConfig).afterClosed().subscribe(result=>{
+      this.refresh();
+    })
+
+  }
+  refresh(){
+    this.user=localStorage.getItem('userorg');
   }
 
 }

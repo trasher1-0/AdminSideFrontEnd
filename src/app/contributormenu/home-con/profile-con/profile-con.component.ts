@@ -34,7 +34,12 @@ export class ProfileConComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(ContributorComponent,dialogConfig);
+    this.dialog.open(ContributorComponent,dialogConfig).afterClosed().subscribe(result=>{
+      this.refresh();
+    })
+  }
+  refresh(){
+    this.user=JSON.parse(localStorage.getItem('usercon'));
   }
 
 }

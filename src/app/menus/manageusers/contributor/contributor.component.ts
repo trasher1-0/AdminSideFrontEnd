@@ -30,8 +30,9 @@ export class ContributorComponent implements OnInit {
         console.log("Update");
         this.ngOnInit();
         this.notificationService.success(':: Update successfully.');
-        localStorage.setItem('usercont',JSON.stringify(this.service.getContributor(this.service.form.get('id').value)));
-
+        this.service.getContributor(this.service.form.get('id').value).subscribe(data=>{
+          localStorage.setItem('usercont',JSON.stringify(data));
+        });
       }
       else{
         this.service.saveContributor(this.service.form.value);
