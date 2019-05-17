@@ -59,6 +59,7 @@ import { ProfileConComponent } from './contributormenu/home-con/profile-con/prof
 import { ProfileOrgComponent } from './organizermenu/home-org/profile-org/profile-org.component';
 import { EmailService } from './services/email.service';
 import { ForumMessageComponent } from './menus/messages/forum-message/forum-message.component';
+import { SendMessageComponent } from './menus/messages/send-message/send-message.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { ForumMessageComponent } from './menus/messages/forum-message/forum-mess
     PagenotfoundComponent,
     ProfileConComponent,
     ProfileOrgComponent,
-    ForumMessageComponent
+    ForumMessageComponent,
+    SendMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -132,6 +134,7 @@ import { ForumMessageComponent } from './menus/messages/forum-message/forum-mess
     OrganizerService,AdminService,DatePipe,
     AuthService,RobotService, AuthGuard,ReportService,NotificationService,EmailService],
   bootstrap: [AppComponent],
-  entryComponents:[OrganizerComponent,LoginComponent,RobotComponent,ContributorComponent,EmailComponent]
+  entryComponents:[OrganizerComponent,LoginComponent,RobotComponent,ContributorComponent,EmailComponent,
+  SendMessageComponent]
 })
 export class AppModule { }

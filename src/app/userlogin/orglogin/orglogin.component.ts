@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NotificationService } from 'src/app/services/notification.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'src/app/services/message.service';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { SendMessageComponent } from 'src/app/menus/messages/send-message/send-message.component';
 
 @Component({
   selector: 'app-orglogin',
@@ -18,7 +21,9 @@ export class OrgloginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router:Router
+    private router:Router,
+    private messageService:MessageService,
+    private dialog:MatDialog
   ) {}
 
   ngOnInit() {
@@ -44,6 +49,20 @@ export class OrgloginComponent implements OnInit {
 
   backHome(){
     return this.router.navigate(['/userlogin']);
+  }
+
+  sendMessage(){
+    this.messageService.populateForm({
+      'sender':'',
+      'reciever':'Admin',
+      'message':'',
+      'status':'0'
+    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "40%";
+    this.dialog.open(SendMessageComponent,dialogConfig);
   }
 
 }

@@ -35,7 +35,9 @@
 
 <mat-toolbar>Old Messages</mat-toolbar>
 
-<div *ngIf="readEmpty">Not Available!</div>
+<div *ngIf="readEmpty">
+  <div class="col-md-2"></div>Not Available!
+</div>
 
 <div *ngFor="let message of messagesRead">
 
