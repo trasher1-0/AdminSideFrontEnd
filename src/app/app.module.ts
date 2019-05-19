@@ -60,6 +60,7 @@ import { ProfileOrgComponent } from './organizermenu/home-org/profile-org/profil
 import { EmailService } from './services/email.service';
 import { ForumMessageComponent } from './menus/messages/forum-message/forum-message.component';
 import { SendMessageComponent } from './menus/messages/send-message/send-message.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { SendMessageComponent } from './menus/messages/send-message/send-message
     ProfileConComponent,
     ProfileOrgComponent,
     ForumMessageComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,
