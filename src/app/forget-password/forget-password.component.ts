@@ -28,7 +28,6 @@ export class ForgetPasswordComponent implements OnInit {
   onSubmit() {
     if (this.service.form.valid) {
       if (this.service.form.get('email').value){
-        console.log(this.service.form.value);
         this.service.getOrganizer(this.service.form.get('email').value).subscribe(data=>{
           if(data['id']==null){
             this.notificationService.warn("You are not a registered Organizer!");
@@ -37,9 +36,11 @@ export class ForgetPasswordComponent implements OnInit {
             const user={
               'reciever':data['email'],
               'subject':"Trasher Organizer Forget Password",
-              'body':"Your password is : "+data['password']
+              'body':"Username : "+data['username']+", password : "+data['password']
             }
-            this.emailService.sendMail(user);
+            this.emailService.sendMail(user).subscribe(data=>{
+              console.log(data['error']['text']);
+            });
             this.notificationService.success("Password will recieved to your email!");
             this.onClose()
           }

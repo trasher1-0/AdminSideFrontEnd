@@ -68,7 +68,7 @@ export class ContloginComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
+    dialogConfig.width = "40%";
     this.dialog.open(ForgetContComponent,dialogConfig);
   }
 
