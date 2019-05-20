@@ -146,4 +146,16 @@ export class AuthService {
     localStorage.setItem('userorg',null);
     this.router.navigate(['/userlogin']);
   }
+
+  existOrgAPI="http://localhost:8080/trasher/api/exist/org";
+  existContAPI="http://localhost:8080/trasher/api/exist/cont";
+  
+  checkOrgUser(user:any){
+    return this.http.post(this.existOrgAPI,user);
+  }
+
+  checkContUser(user:any){
+    return this.http.post(this.existContAPI,user);
+  }
+
 }
