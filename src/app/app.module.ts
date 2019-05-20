@@ -61,6 +61,7 @@ import { EmailService } from './services/email.service';
 import { ForumMessageComponent } from './menus/messages/forum-message/forum-message.component';
 import { SendMessageComponent } from './menus/messages/send-message/send-message.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ForgetContComponent } from './forget-password/forget-cont/forget-cont.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     ProfileOrgComponent,
     ForumMessageComponent,
     SendMessageComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ForgetContComponent
   ],
   imports: [
     BrowserModule,
@@ -137,6 +139,6 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     AuthService,RobotService, AuthGuard,ReportService,NotificationService,EmailService],
   bootstrap: [AppComponent],
   entryComponents:[OrganizerComponent,LoginComponent,RobotComponent,ContributorComponent,EmailComponent,
-  SendMessageComponent]
+  SendMessageComponent,ForgetContComponent,ForgetPasswordComponent]
 })
 export class AppModule { }
