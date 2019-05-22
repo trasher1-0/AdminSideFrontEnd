@@ -18,6 +18,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RobotComponent } from './menus/managerobot/robot/robot.component';
 import { AdminloginComponent } from './userlogin/adminlogin/adminlogin.component';
 import { OrgloginComponent } from './userlogin/orglogin/orglogin.component';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   
@@ -98,6 +99,8 @@ const routes: Routes = [
   {path: 'orglogin' , component : OrgloginComponent,
 
   },
+
+  {path:'map',component:MapComponent},
 
   {path: '' , redirectTo: 'userlogin', pathMatch: 'full'},
 

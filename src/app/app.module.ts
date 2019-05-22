@@ -63,6 +63,13 @@ import { SendMessageComponent } from './menus/messages/send-message/send-message
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ForgetContComponent } from './forget-password/forget-cont/forget-cont.component';
 
+import { environment } from '../environments/environment';
+import { AgmCoreModule} from '@agm/core';
+import { MapComponent } from './map/map.component';
+import { AngularFireModule } from '@angular/fire';
+
+const firebaseconfig=environment.firebaseConfig;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,7 +108,8 @@ import { ForgetContComponent } from './forget-password/forget-cont/forget-cont.c
     ForumMessageComponent,
     SendMessageComponent,
     ForgetPasswordComponent,
-    ForgetContComponent
+    ForgetContComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -132,8 +140,13 @@ import { ForgetContComponent } from './forget-password/forget-cont/forget-cont.c
     MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    AngularFireModule.initializeApp(firebaseconfig),
+    AgmCoreModule.forRoot({
+      apiKey:environment.googleMapsKey
+    })
   ],
+  
   providers: [ContributorService,
     OrganizerService,AdminService,DatePipe,
     AuthService,RobotService, AuthGuard,ReportService,NotificationService,EmailService],
