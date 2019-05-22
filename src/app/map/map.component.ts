@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MapService } from '../services/map.service';
 
 @Component({
   selector: 'app-map',
@@ -7,23 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  constructor(public mapService:MapService) { }
   lat:number;
   lng:number;
   zoom = 14;
+  coords=[];
 
   ngOnInit() {
-    this.getLocation();
-    console.log(this.lat,this.lng);
-  }
-
-  getLocation(){
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(position=>{
-        this.lat=position.coords.latitude;
-        this.lng=position.coords.longitude;
+    //this.getMyLocation();
+    this.mapService.getCoords().subscribe(list=>{
+      this.coords=list.map(item=>{
+        return {
+          $key:item.key,
+          ...item.payload.val()
+        };
       })
-    }
+      this.lat=this.coords[0]['latitude'];
+      this.lng=this.coords[0]['longitude'];
+    })
   }
 
+  // getMyLocation(){
+  //   if(navigator.geolocation){
+  //     navigator.geolocation.getCurrentPosition(position=>{
+  //       this.lat=position.coords.latitude;
+  //       this.lng=position.coords.longitude;
+  //     })
+  //   }
+  // }
 }

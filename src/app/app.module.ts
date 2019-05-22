@@ -67,6 +67,7 @@ import { environment } from '../environments/environment';
 import { AgmCoreModule} from '@agm/core';
 import { MapComponent } from './map/map.component';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 const firebaseconfig=environment.firebaseConfig;
 
@@ -141,6 +142,7 @@ const firebaseconfig=environment.firebaseConfig;
     FormsModule,
     ReactiveFormsModule,
     ChartsModule,
+    AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseconfig),
     AgmCoreModule.forRoot({
       apiKey:environment.googleMapsKey
