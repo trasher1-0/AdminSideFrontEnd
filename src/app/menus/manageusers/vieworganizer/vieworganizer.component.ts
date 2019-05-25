@@ -82,6 +82,7 @@ export class VieworganizerComponent implements OnInit {
 
   onEdit(row){
     console.log(row);
+    localStorage.setItem('Editusername',row.username);
     this.organizerService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -89,6 +90,7 @@ export class VieworganizerComponent implements OnInit {
     dialogConfig.width = "60%";
     this.dialog.open(OrganizerComponent,dialogConfig).afterClosed().subscribe(result=>{
       this.refresh();
+      localStorage.setItem('Editusername',null);
     })
   }
 

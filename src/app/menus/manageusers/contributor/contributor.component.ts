@@ -33,8 +33,9 @@ export class ContributorComponent implements OnInit {
       }
       this.authService.checkContUser(user).subscribe(data=>{
 
-        if(data['id']!=null){
+        if(data['id']!=null && localStorage.getItem('Editusername')=='null'){
           this.notificationService.warn('Email or username already exists!');
+          localStorage.setItem('Editusername',null);
         }else{
           if (this.service.form.get('id').value){
             this.service.updateContributor(this.service.form.value);
