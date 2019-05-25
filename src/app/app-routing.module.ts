@@ -19,6 +19,7 @@ import { RobotComponent } from './menus/managerobot/robot/robot.component';
 import { AdminloginComponent } from './userlogin/adminlogin/adminlogin.component';
 import { OrgloginComponent } from './userlogin/orglogin/orglogin.component';
 import { MapComponent } from './map/map.component';
+import { ControlRobotComponent } from './contributormenu/control-robot/control-robot.component';
 
 const routes: Routes = [
   
@@ -73,6 +74,10 @@ const routes: Routes = [
   },
 
   {path: 'contributor/robotLiveFeed' , component : SystemstatisticsComponent,
+  canActivate: [AuthGuard],
+  },
+
+  {path: 'contributor/controlRobot' , component : ControlRobotComponent,
   canActivate: [AuthGuard],
   },
 

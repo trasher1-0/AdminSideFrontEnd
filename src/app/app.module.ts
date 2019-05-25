@@ -68,6 +68,8 @@ import { AgmCoreModule} from '@agm/core';
 import { MapComponent } from './map/map.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { SelectMapComponent } from './contributormenu/select-map/select-map.component';
+import { ControlRobotComponent } from './contributormenu/control-robot/control-robot.component';
 
 const firebaseconfig=environment.firebaseConfig;
 
@@ -110,7 +112,9 @@ const firebaseconfig=environment.firebaseConfig;
     SendMessageComponent,
     ForgetPasswordComponent,
     ForgetContComponent,
-    MapComponent
+    MapComponent,
+    SelectMapComponent,
+    ControlRobotComponent
   ],
   imports: [
     BrowserModule,
