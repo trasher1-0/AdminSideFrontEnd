@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MapService } from 'src/app/services/map.service';
 import { MapLoaderService } from 'src/app/services/map-loader.service';
 import { Observable } from 'rxjs';
+import { FunctionCall } from '@angular/compiler';
 declare var google: any;
 
 @Component({
@@ -18,7 +19,8 @@ export class SelectMapComponent implements OnInit {
   coords=[];
   map: any;
   drawingManager: any;
-  gardenCoords:Observable<any>;
+  gardenCoords:any;
+  polygonCoords=[];
 
   ngOnInit() {
     //this.getMyLocation();
@@ -68,12 +70,22 @@ export class SelectMapComponent implements OnInit {
       if (event.type === google.maps.drawing.OverlayType.POLYGON) {
         //this is the coordinate, you can assign it to a variable or pass into another function.
         this.gardenCoords=event.overlay.getPath().getArray();
-        this.gardenCoords.subscribe(data=>{
-          console.log(data);
-        })
-        
+        let i=0;
+        while(i<this.gardenCoords.length){
+          this.polygonCoords.push({
+            'lat':this.gardenCoords[i].lat(),
+            'lng':this.gardenCoords[i].lng()
+          });
+          i=i+1;
+        }
+        console.log(this.polygonCoords);
+        this.mapService.addCoords(this.polygonCoords);
       }
     });
+  }
+
+  Clean(){
+    this.ngOnInit();
   }
 
 }
