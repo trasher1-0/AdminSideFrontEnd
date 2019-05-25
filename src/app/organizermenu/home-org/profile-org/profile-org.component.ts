@@ -29,6 +29,7 @@ export class ProfileOrgComponent implements OnInit {
 
   onEdit(row){
     console.log(row);
+    localStorage.setItem('Editusername',row.username);
     this.organizerService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -36,11 +37,12 @@ export class ProfileOrgComponent implements OnInit {
     dialogConfig.width = "60%";
     this.dialog.open(OrganizerComponent,dialogConfig).afterClosed().subscribe(result=>{
       this.refresh();
+      localStorage.setItem('Editusername',null);
     })
 
   }
   refresh(){
-    this.user=localStorage.getItem('userorg');
+    this.ngOnInit();
   }
 
 }

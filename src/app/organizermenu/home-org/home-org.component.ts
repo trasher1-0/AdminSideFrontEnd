@@ -25,7 +25,4 @@ export class HomeOrgComponent implements OnInit {
   get isLoggedIn(){
     return localStorage.getItem('tokenorg');
   }
-
-
-
 }

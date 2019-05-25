@@ -86,4 +86,7 @@ export class CustomerComponent implements OnInit {
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
 
+  assignRobot(row){
+    console.log(row);
+  }
 }

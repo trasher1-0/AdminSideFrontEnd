@@ -28,6 +28,7 @@ export class ProfileConComponent implements OnInit {
   }
 
   onEdit(row){
+    localStorage.setItem('Editusername',row.username);
     console.log(row);
     this.contributorService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
@@ -36,10 +37,11 @@ export class ProfileConComponent implements OnInit {
     dialogConfig.width = "60%";
     this.dialog.open(ContributorComponent,dialogConfig).afterClosed().subscribe(result=>{
       this.refresh();
+      localStorage.setItem('Editusername',null);
     })
   }
   refresh(){
-    this.user=JSON.parse(localStorage.getItem('usercon'));
+    this.ngOnInit();
   }
 
 }
