@@ -43,7 +43,7 @@ const routes: Routes = [
     //data: { roles: [Role.Admin] }
   },
 
-  { path: 'systemStatistics' , 
+  { path: 'robotLiveFeed' , 
     component : SystemstatisticsComponent,
     canActivate: [AuthGuard],
     //data: { roles: [Role.Admin] }
