@@ -39,6 +39,10 @@ export class RobotService {
     return this.http.get(this.ROBOT_API + '/' + id);
   }
 
+  getMyRobot(id:string){
+    return this.http.get(this.ROBOT_API + '/cont/' + id)
+  }
+
   deleteRobot(id: string){
     return this.http.delete(this.ROBOT_API + '/'+id);
   }
