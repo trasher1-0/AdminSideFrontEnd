@@ -13,7 +13,7 @@ export class ControlRobotComponent implements OnInit {
   public progress:boolean=false;
 
   ngOnInit() {
-    let url = "http://192.168.43.165:8000/index.html";
+    let url = "http://192.168.43.42:8000/index.html";
     this.cameraUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     console.log(this.cameraUrl);
   }

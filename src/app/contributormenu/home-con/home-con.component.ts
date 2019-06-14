@@ -21,7 +21,7 @@ export class HomeConComponent implements OnInit {
     this.user=JSON.parse(localStorage.getItem('usercon'));
     this.robotService.getMyRobot(this.user['id']).subscribe(data=>{
       this.robot=data;
-      console.log("Roboot",this.robot);
+      //console.log("Roboot",this.robot);
     });
   }
 

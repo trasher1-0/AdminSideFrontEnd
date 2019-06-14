@@ -47,6 +47,10 @@ export class RobotService {
     return this.http.delete(this.ROBOT_API + '/'+id);
   }
 
+  setRobotCont(robot:any){
+    return this.http.put(this.ROBOT_API+'/cont/add/'+robot.id,robot);
+  }
+
   saveRobot(robot: Robot,selectedFile: File){
     const sd = new FormData();
     sd.append('file',selectedFile,selectedFile.name);

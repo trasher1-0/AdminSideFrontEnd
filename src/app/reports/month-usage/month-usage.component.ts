@@ -47,7 +47,7 @@ export class MonthUsageComponent implements OnInit {
           data:this.counts,
           fill:false,
           lineTension:0.2,
-          borderColor:"red",
+          borderColor:"green",
           borderWidth:1,
         }]
       },
