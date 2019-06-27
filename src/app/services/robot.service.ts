@@ -76,4 +76,8 @@ export class RobotService {
   getCount(): Observable<any>{
     return this.http.get(this.ROBOT_API+"/count");
   }
+
+  AssignRobot(id:string,cusId:string){
+    return this.http.post(this.ROBOT_API+"",cusId);
+  }
 }
