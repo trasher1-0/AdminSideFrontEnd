@@ -12,7 +12,7 @@ export class SystemstatisticsComponent implements OnInit {
   public cameraUrl : SafeUrl;
 
   ngOnInit() {
-    let url = "http://192.168.43.42:8000/index.html";
+    let url = "http://192.168.8.100:8080/jsfs.html";
     this.cameraUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     console.log(this.cameraUrl);
   }
